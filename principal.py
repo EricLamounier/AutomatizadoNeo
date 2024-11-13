@@ -276,7 +276,7 @@ def cadastra_produto(produto):
     # filtro
     sleep(1)
     escreve(cadastro["produto"])
-    SLEEP(0.7)
+    sleep(0.7)
     press("insert")
     sleep(1)
     novo(1)
