@@ -363,6 +363,3 @@ def recebe_contas_receber_paga_contas_pagar(conta):
     sleep(1)
     press('esc') # Sai consulta
     return False
-
-from dados import *
-cadastra_lancamento_conta_corrente([lancamento1, lancamento2])
