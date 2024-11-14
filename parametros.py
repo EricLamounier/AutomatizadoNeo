@@ -21,6 +21,7 @@ def clique_parametros_gerais(campoAClicar, timeout=1):
 
 def clique_combo(indexCampoAClicar, tela, timeout=1):
     cont = 1
+    # 2.54 11
     try:
         app = Application(backend="uia").connect(title="Neo - #empresateste")
         main_window = app.window(title="Neo - #empresateste")

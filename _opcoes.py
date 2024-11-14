@@ -43,9 +43,9 @@ opcoes = [
     ("Cadastra Dav Estágio", ['sv073'], [davEstagio1], cadastra_dav_estagio),
     ("Cadastra Entrada Compra Manual 1", ['c', 'enter', 'enter'], [entradaCompraManual1], cadastra_entrada_compra_manual),
     ("Cadastra Entrada Compra Manual 2", ['c', 'enter', 'enter'], [entradaCompraManual2], cadastra_entrada_compra_manual),
-    ("Cadastra Entrada Compra XML 1", ['c', 'right'], [entradaCompraXML1], cadastra_entrada_compra_importacao_xml),
-    ("Cadastra Entrada Compra XML 2", ['c', 'right'], [entradaCompraXML2], cadastra_entrada_compra_importacao_xml),
-    ("Validações Entrada Compra - Contas Pagar", ['f', 'right'], [[entradaCompraManual1, entradaCompraManual2, entradaCompraXML1, entradaCompraXML2]], validacao_entrada_compra_contas_a_pagar),
+    ("Cadastra Entrada Compra XML 1", ['c', 'right', 'enter'], [entradaCompraXML1], cadastra_entrada_compra_importacao_xml),
+    ("Cadastra Entrada Compra XML 2", ['c', 'right', 'enter'], [entradaCompraXML2], cadastra_entrada_compra_importacao_xml),
+    ("Validações Entrada Compra - Contas Pagar", ['f', 'right', 'enter'], [[entradaCompraManual1, entradaCompraManual2, entradaCompraXML1, entradaCompraXML2]], validacao_entrada_compra_contas_a_pagar),
     ("Validações Entrada Compra - Estoque", ['p', 'p'], [''], validacao_entrada_compra_produto),
     ("Cadastrar DAV 1", ['v', 'enter'], [dav1], cadastra_dav),
     ("Cadastrar DAV 2", ['v', 'enter'], [dav2], cadastra_dav),
@@ -78,10 +78,11 @@ def smoke(index_inicio, insere_mensagem, step):
         cancelaExecucao = False
         teste["forcaCancelaExecucao"] = False
 
+        sleep(1)
         # Processamento de mensagens e entrada na tela
         if nomeTela and (nomeTela[0] != "_"):
             insere_mensagem(f"➤ {nomeTela}")
-        sleep(2)
+        
         if len(atalhos) > 0:
             entra_na_tela_neo(atalhos)
 

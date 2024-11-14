@@ -280,84 +280,84 @@ def validacao_contas_receber(davs):
     return False
 
 def cadastra_orcamento(orcamento): 
-    sleep(1)
-    press('insert') # Sai do filtro
-    sleep(0.5)
+    # sleep(1)
+    # press('insert') # Sai do filtro
+    # sleep(0.5)
 
-    novo(1)
-
-
-    pula(3)
-    escreve(orcamento['funcionario'], 1)
-    escreve(orcamento['frete'], 3)
-    escreve(orcamento['cliente'], 6)
-    sleep(0.5)
-
-    if len(orcamento['produtos']) > 0:
-        for produto in orcamento['produtos']:
-            escreve(produto['quantidade'], 1)
-            escreve(produto['produto'], 1)
-            escreve(produto['unitario'], 1)
-            escreve(produto['desconto'], 2)
-
-    if len(orcamento['servicos']) > 0:
-        press('f1')
-        sleep(0.7)
-        for servico in orcamento['servicos']:
-            escreve(servico['quantidade'], 1)
-            escreve(servico['servico'], 1)
-            escreve(servico['unitario'], 1)
-            escreve(servico['desconto'], 2)
-
-    if len(orcamento['produtosNaoCadastrados']) > 0:
-        press('f1')
-        sleep(0.7)
-        for produtosNaoCadastrado in orcamento['produtosNaoCadastrados']:
-            escreve(produtosNaoCadastrado['quantidade'], 1)
-            escreve(produtosNaoCadastrado['produtoNaoCadastrado'], 1)
-            escreve(produtosNaoCadastrado['unitario'], 1)
-            escreve(produtosNaoCadastrado['desconto'], 2)
-
-    sleep(0.7)
-    if valida_grid('', 'centroDireito', orcamento['validacao1']): return True
-    sleep(1)
+    # novo(1)
 
 
-    press('alt')
-    sleep(1)
-    press('f') # Forma de pagamento
-    sleep(1)
-    if len(orcamento['formasPagamento']):
-        for formaPagamento in orcamento['formasPagamento']:
-            escreve(formaPagamento['formaPagamento'], 1)
-            escreve(formaPagamento['desconto'], 1)
-            if formaPagamento['entrada'] != '-1': escreve(formaPagamento['entrada'], 1)
-            if formaPagamento['formaCombinada'] == 1:
-                press('space')
-            press(['enter', 'enter'])
-        sleep(0.7)
-        if valida_grid('', 'centroDireito', formaPagamento['validacao']): return True
+    # pula(3)
+    # escreve(orcamento['funcionario'], 1)
+    # escreve(orcamento['frete'], 3)
+    # escreve(orcamento['cliente'], 6)
+    # sleep(0.5)
 
-    sleep(1.5)
-    modulo = {
-        "pasta": "orcamento",
-        "imagem": "orcamentoRodape",
-        "inicio": "438x661",
-        "fim": "1420x786",
-    }
-    if imagens_diferentes(modulo):
-        return True
+    # if len(orcamento['produtos']) > 0:
+    #     for produto in orcamento['produtos']:
+    #         escreve(produto['quantidade'], 1)
+    #         escreve(produto['produto'], 1)
+    #         escreve(produto['unitario'], 1)
+    #         escreve(produto['desconto'], 2)
+
+    # if len(orcamento['servicos']) > 0:
+    #     press('f1')
+    #     sleep(0.7)
+    #     for servico in orcamento['servicos']:
+    #         escreve(servico['quantidade'], 1)
+    #         escreve(servico['servico'], 1)
+    #         escreve(servico['unitario'], 1)
+    #         escreve(servico['desconto'], 2)
+
+    # if len(orcamento['produtosNaoCadastrados']) > 0:
+    #     press('f1')
+    #     sleep(0.7)
+    #     for produtosNaoCadastrado in orcamento['produtosNaoCadastrados']:
+    #         escreve(produtosNaoCadastrado['quantidade'], 1)
+    #         escreve(produtosNaoCadastrado['produtoNaoCadastrado'], 1)
+    #         escreve(produtosNaoCadastrado['unitario'], 1)
+    #         escreve(produtosNaoCadastrado['desconto'], 2)
+
+    # sleep(0.7)
+    # if valida_grid('', 'centroDireito', orcamento['validacao1']): return True
+    # sleep(1)
+
+
+    # press('alt')
+    # sleep(1)
+    # press('f') # Forma de pagamento
+    # sleep(1)
+    # if len(orcamento['formasPagamento']):
+    #     for formaPagamento in orcamento['formasPagamento']:
+    #         escreve(formaPagamento['formaPagamento'], 1)
+    #         escreve(formaPagamento['desconto'], 1)
+    #         if formaPagamento['entrada'] != '-1': escreve(formaPagamento['entrada'], 1)
+    #         if formaPagamento['formaCombinada'] == 1:
+    #             press('space')
+    #         press(['enter', 'enter'])
+    #     sleep(0.7)
+    #     if valida_grid('', 'centroDireito', formaPagamento['validacao']): return True
+
+    # sleep(1.5)
+    # modulo = {
+    #     "pasta": "orcamento",
+    #     "imagem": "orcamentoRodape",
+    #     "inicio": "438x661",
+    #     "fim": "1420x786",
+    # }
+    # if imagens_diferentes(modulo):
+    #     return True
     
-    press('insert')
-    sleep(0.5)
-    press('esc') # Tela consulta
-    sleep(1)
+    # press('insert')
+    # sleep(0.5)
+    # press('esc') # Tela consulta
+    # sleep(1)
 
-    orcamento['validacao2'][1] = obter_data(0)
-    if valida_grid('', 'centroDireito', orcamento['validacao2']): return True
+    # orcamento['validacao2'][1] = obter_data(0)
+    # if valida_grid('', 'centroDireito', orcamento['validacao2']): return True
 
-    press('f8') # Gerar DAV
-    sleep(1)
+    # press('f8') # Gerar DAV
+    # sleep(1)
 
     dav = orcamento['dav']
     escreve(dav['cfop'], 1)
@@ -531,3 +531,6 @@ def cadastra_condicional(condicional):
     press('esc')
     return False
 
+
+from dados import *
+cadastra_orcamento(orcamento1)

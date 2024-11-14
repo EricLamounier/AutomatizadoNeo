@@ -487,7 +487,7 @@ pessoa3 = {
     "observacao": "",
     "crtFornecedor": "1",
     "cliente": {
-        "classificacao": "3",
+        "classificacao": "2",
         "limiteCredito": "",
         "formaPagamentoPadrao": "",
     },

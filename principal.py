@@ -70,9 +70,9 @@ def cadastra_classificacao_cliente(classificacoes):
 
         sleep(1)
         clicaCentro()
-        sleep(1.5)
+        sleep(0.7)
         clica_replicar_para_todas_as_guias()
-        sleep(1)
+        sleep(0.7)
         salva(1)
 
         if valida_grid(classificacao["nome"], "centroDireito", classificacao["validacao"]):

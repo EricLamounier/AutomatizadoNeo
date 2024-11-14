@@ -225,5 +225,5 @@ def cadastra_empresa(
         return True  # Nao foi criado
 
     press("f5")
-    sleep(8)  # Entra no sistema
+    sleep(10)  # Entra no sistema
     return False  # Criou
