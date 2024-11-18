@@ -279,20 +279,22 @@ def lancamento_conta_corrente(lancamento):
     escreve(lancamento['numeroDocumento'], 4)
 
 def cadastra_lancamento_conta_corrente(lancamentos): # TODO: PEGAR OS DADOS DA VALIDACAO
-    sleep(2)
-    escreve(lancamentos[0]['contaMovimento'])
-    sleep(0.5)
-    press('insert')
-    sleep(1)
+    # sleep(2)
+    # escreve(lancamentos[0]['contaMovimento'])
+    # sleep(0.5)
+    # press('insert')
+    # sleep(1)
     
-    for lancamento in lancamentos:
-        lancamento_conta_corrente(lancamento)
-        sleep(1.5)
+    # for lancamento in lancamentos:
+        # lancamento_conta_corrente(lancamento)
+        # sleep(1.5)
     
     lancamentos = lancamentos[0]
     cont = 1
     datasHoje = lancamentos["indicesData"]["hoje"]
     datasFuturas = lancamentos["indicesData"]["futuras"]
+
+    print(datasFuturas)
 
     for idx in datasHoje:
         lancamentos["validacao"][idx] = obter_data(0)
@@ -303,16 +305,18 @@ def cadastra_lancamento_conta_corrente(lancamentos): # TODO: PEGAR OS DADOS DA V
 
     if valida_grid('', 'centroDireito', lancamentos['validacao'], lancamentos['indicesHora']): return True
     press('esc')
-    return False
+    return True
 
+from dados import *
+cadastra_lancamento_conta_corrente([lancamento1, lancamento2])
 ### Recebimentos
 def recebe_contas_receber_paga_contas_pagar(conta):
-    sleep(1)
+    sleep(1.5)
     press('insert')
-    sleep(0.5)
+    sleep(1)
 
     press('f7') # Receber
-    sleep(3)
+    sleep(4)
     
     pula(8) # Filtrar
 

@@ -56,10 +56,10 @@ opcoes = [
     ("Cadastra Documento Fiscal", ['t', 'y', 'd'], [documentoFiscal1], cadastra_documento_fiscal),
     ("Cadastra Nota Fiscal", ['t', 'enter'], [notaFiscal1], cadastra_nota_fiscal),
     ("Lançamentos Avulsos - CR", ['f', 'enter'], [[contasReceber1, contasReceberMultiplasParcelas1]], cadastra_contas_receber_avulso),
-    ("Lancamentos Avulsos - CP", ['f', 'right'], [[contasPagar1, contasPagarMultiplasParcelas1]], cadastra_contas_pagar_avulso),
+    ("Lancamentos Avulsos - CP", ['f', 'right', 'enter'], [[contasPagar1, contasPagarMultiplasParcelas1]], cadastra_contas_pagar_avulso),
     ("Lançamentos Avulsos - MF", ['f', 'm'], [[lancamento1, lancamento2]], cadastra_lancamento_conta_corrente),
     ("Recebimento CR's", ['f', 'enter'] ,[recebimento1], recebe_contas_receber_paga_contas_pagar),
-    ("Pagamento CP's", ['f', 'right'], [pagamento1], recebe_contas_receber_paga_contas_pagar),
+    ("Pagamento CP's", ['f', 'right', 'enter'], [pagamento1], recebe_contas_receber_paga_contas_pagar),
     # FIM
 ]
 

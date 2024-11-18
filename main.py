@@ -13,7 +13,7 @@ from time import sleep
 from commonFunctionsAutomatizados import *
 from _opcoes import opcoes, smoke
 from commonFunctionsAutomatizados._dados import teste as test
-
+import ctypes
 # Variáveis globais
 current_line = 1
 
@@ -246,6 +246,9 @@ def criar_interface():
     root.title(WINDOW_TITLE)
     root.iconbitmap(ICON_PATH)
     root.geometry("500x450")
+
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("testeautomatizado")
+    ctypes.windll.user32.LoadIconW(0, ICON_PATH)
     
     root.resizable(width=False, height=False)
 

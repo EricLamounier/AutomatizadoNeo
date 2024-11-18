@@ -2828,8 +2828,8 @@ lancamento1 = {
     'contaContabil': '137',
     'valor': '10000',
     'numeroDocumento': 'lam1',
-    'validacao': ['9', 'recebimento do documento 2/1 do cliente: #pessoa1', '12/11/2024', '12/11/2024', 'Crédito', '1.974,80', 'Documento CR', '2/1', 'Quitação de Contas a Receber', '', '2/1', '999', 'Realtec', 'Em Vigência', '15', 'recebimento do documento Lam1 do cliente:', '12/11/2024', '12/11/2024', 'Crédito', '10.000,00', 'Documento CR', 'Lam1', 'Lançamento Normal', '', '', '999', 'Realtec', 'Em Vigência', '16', 'pagamento referente ao documento Lam2 do fornecedor:', '12/11/2024', '12/11/2024', 'Débito', '50,00', 'Documento CP', 'Lam2', 'Lançamento Normal', '', '', '999', 'Realtec', 'Em Vigência', ''],
-    "indicesData": {"hoje": [2, 3, 17, 18, 32, 33], "futuras": []},
+    'validacao': ['9', 'recebimento do documento 2/1 do cliente: #pessoa1', '18/11/2024', '18/11/2024', 'Crédito', '1.974,80', 'Documento CR', '2/1', 'Quitação de Contas a Receber', '', '2/1', '999', 'Realtec', 'Em Vigência', '15', 'recebimento do documento Lam1 do cliente:', '18/11/2024', '18/11/2024', 'Crédito', '10.000,00', 'Documento CR', 'Lam1', 'Lançamento Normal', '', '', '999', 'Realtec', 'Em Vigência', '16', 'pagamento referente ao documento Lam2 do fornecedor:', '18/11/2024', '18/11/2024', 'Débito', '50,00', 'Documento CP', 'Lam2', 'Lançamento Normal', '', '', '999', 'Realtec', 'Em Vigência', ''],
+    "indicesData": {"hoje": [2, 3, 16, 17, 30, 31], "futuras": []},
     "indicesHora": [10, 24, 38]
 }
 
