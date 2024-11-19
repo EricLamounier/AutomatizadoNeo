@@ -152,20 +152,33 @@ def pula(quantidade, timeout=0.5):
     sleep(timeout)
 
 
-def entra_na_tela_neo(atalhos): # TODO MELHORAR AQUI...
-   if len(atalhos) > 0:
-       if len(atalhos) == 1: # Nome da tela
-           sleep(0.5)
-           hotkey("ctrl", "f")  # Busca
-           sleep(0.5)
-           keyboard.write(atalhos[0])
-           press("enter")
-           sleep(1)
-       else: # Atalhos
+def entra_na_tela_neo(atalhos, rastros): # TODO MELHORAR AQUI...
+    if len(atalhos) > 0:
+        if len(atalhos) == 1: # Nome da tela
+            sleep(0.5)
+            hotkey("ctrl", "f")  # Busca
+            sleep(0.5)
+            keyboard.write(atalhos[0])
+
+            press('enter')
+            sleep(1)
+        else: # Atalhos
             press("alt")
             for atalho in atalhos:
                 sleep(0.5)
                 press(atalho)
+            sleep(0.5)
+            copy('')
+            hotkey('ctrl', 'f6')
+            print(rastros, paste() != rastros)
+            if paste() != rastros:
+                press(['esc', 'esc', 'esc', 'n', 'n'])
+                sleep(0.5)
+                hotkey('ctrl', 'f')
+                write(rastros.split('-')[0])
+                press('enter')
+                sleep(1)
+            
 
 def clica_menu_auxiliar(tela):
      
