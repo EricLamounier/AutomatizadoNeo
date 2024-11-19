@@ -16,8 +16,8 @@ def sair(arg=""):
 
 
 opcoes = [
-    ("Cadastra Empresa", [], [empresa], [] ,cadastra_empresa),
-    ("Parâmetros Gerais", ["m", "right", 'enter', 'r'], [parametrosGerais], 'SM010', parametros_gerais),
+    ("Cadastra Empresa", [], [empresa], '' ,cadastra_empresa),
+    ("Parâmetros Gerais", ["m", "right", 'enter', 'r'], [parametrosGerais], '', parametros_gerais),
     ("Cadastra Usuário", ["p", "b", "u"], [usuario1], 'SP061', cadastra_usuario),
     ("Cadastra Funcionário", ["p", "n"], [funcionario1], 'SP063', cadastra_funcionario),
     ("Cadastra Município", ["p", "b", "e", "m"], [municipio1], 'SP046', cadastra_municipio),

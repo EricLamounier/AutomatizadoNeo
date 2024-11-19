@@ -168,16 +168,17 @@ def entra_na_tela_neo(atalhos, rastros): # TODO MELHORAR AQUI...
                 sleep(0.5)
                 press(atalho)
             sleep(0.5)
-            copy('')
-            hotkey('ctrl', 'f6')
-            print(rastros, paste() != rastros)
-            if paste() != rastros:
-                press(['esc', 'esc', 'esc', 'n', 'n'])
-                sleep(0.5)
-                hotkey('ctrl', 'f')
-                write(rastros.split('-')[0])
-                press('enter')
-                sleep(1)
+            if rastros != '':
+                copy('')
+                hotkey('ctrl', 'f6')
+                
+                if paste() != rastros:
+                    press(['esc', 'esc', 'esc', 'n', 'n'])
+                    sleep(0.5)
+                    hotkey('ctrl', 'f')
+                    write(rastros.split('-')[0])
+                    press('enter')
+                    sleep(1)
             
 
 def clica_menu_auxiliar(tela):
