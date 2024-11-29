@@ -56,7 +56,7 @@ def limpa():
 
 
 def cria_pasta():
-    base_dir = rf"\\10.1.10.50\Users\ebotelho\Desktop\Automatizados\{test["teste"]["nomeExe"]}\Imagens"
+    base_dir = rf"\\10.1.10.50\Users\ebotelho\Automatizados\{test["teste"]["nomeExe"]}\Imagens"
     if not exists(base_dir):  # Se nao existir a pasta Imagens, cria
         mkdir(base_dir)
 
