@@ -181,7 +181,7 @@ def cadastra_usuario(usuario):
     escreve(usuario["emailAtendimento"], 1)
 
     sleep(0.5)
-    salva(1)
+    salva(0.3)
 
     clica_privilegio()
     sleep(1)
