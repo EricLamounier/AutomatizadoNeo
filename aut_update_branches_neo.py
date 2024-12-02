@@ -12,7 +12,7 @@ if __name__ == "__main__":
     branches = ["2.54", "2.56"]
     
     for branch in branches:
-        print(f'\nmain -> {branch} ---------------------------------------------------')
+        print(f'\nmain -> {branch} .---------------------------------------------------')
         err, out = run_command(f'git checkout {branch}')
         print(f'1: {err}')
         err, out = run_command(f'git merge main')
