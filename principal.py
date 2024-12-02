@@ -68,11 +68,11 @@ def cadastra_classificacao_cliente(classificacoes):
             press("enter")
             escreve(classificacao["mensagemBloqueiaCreditoMensagem"], 0)
 
-        sleep(1)
+        sleep(0.3)
         clicaCentro()
-        sleep(0.7)
+        sleep(0.3)
         clica_replicar_para_todas_as_guias()
-        sleep(0.7)
+        sleep(0.5)
         salva(1)
 
         if valida_grid(classificacao["nome"], "centroDireito", classificacao["validacao"]):
