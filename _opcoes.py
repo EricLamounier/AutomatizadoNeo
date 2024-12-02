@@ -58,8 +58,8 @@ opcoes = [
     ("Lançamentos Avulsos - CR", ['f', 'enter'], [[contasReceber1, contasReceberMultiplasParcelas1]], 'SF018 - SF006', cadastra_contas_receber_avulso),
     ("Lancamentos Avulsos - CP", ['f', 'right', 'enter'], [[contasPagar1, contasPagarMultiplasParcelas1]], 'SF003 - SF005', cadastra_contas_pagar_avulso),
     ("Lançamentos Avulsos - MF", ['f', 'm'], [[lancamento1, lancamento2]], 'SF015 - SF014', cadastra_lancamento_conta_corrente),
-    ("Recebimento CR's", ['f', 'enter'] ,[recebimento1], 'SF003 - SF005', recebe_contas_receber_paga_contas_pagar),
-    ("Pagamento CP's", ['f', 'right', 'enter'], [pagamento1], 'SF018 - SF006', recebe_contas_receber_paga_contas_pagar),
+    ("Recebimento CR's", ['f', 'enter'] ,[recebimento1], 'SF018 - SF006', recebe_contas_receber_paga_contas_pagar),
+    ("Pagamento CP's", ['f', 'right', 'enter'], [pagamento1], 'SF003 - SF005', recebe_contas_receber_paga_contas_pagar),
     # FIM
 ]
 
