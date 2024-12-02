@@ -157,13 +157,13 @@ def parametros_gerais(parametros):
     clique_parametros_gerais("Faturamento")
 
     press("enter")  # NFe
-    escreve("homologacao", 1)
+    escreve("homol", 1)
 
-    escreve("homologacao", 1)
+    escreve("homol", 1)
 
-    escreve("homologacao", 1)
+    escreve("homol", 1)
 
-    escreve("homologacao", 1)
+    escreve("homol", 1)
 
     sleep(3)
     modulo = {
