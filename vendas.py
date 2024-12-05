@@ -197,9 +197,9 @@ def cadastra_dav(dav):
 
     clica_estoque("Incluir - DAV ", "Estoque")
 
-    if dav["cadastraCMV"]:
-         if cadastra_cmv_dav():
-             return True
+    # if dav["cadastraCMV"]:
+    #      if cadastra_cmv_dav():
+    #          return True
 
     sleep(1.5)
     press("enter")  # Financeiro

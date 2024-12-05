@@ -167,7 +167,7 @@ def entra_na_tela_neo(atalhos, rastros): # TODO MELHORAR AQUI...
             for atalho in atalhos:
                 sleep(0.5)
                 press(atalho)
-            sleep(0.5)
+            sleep(1)
             if rastros != '':
                 copy('')
                 hotkey('ctrl', 'f6')
