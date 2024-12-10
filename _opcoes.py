@@ -21,7 +21,7 @@ opcoes = [
     ("Cadastra Usuário", ["p", "b", "u"], [usuario1], 'SP061', cadastra_usuario),
     ("Cadastra Funcionário", ["p", "n"], [funcionario1], 'SP063', cadastra_funcionario),
     ("Cadastra Município", ["p", "b", "e", "m"], [municipio1], 'SP046', cadastra_municipio),
-    ("Cadastra Conta Movimento", ["f", "y", "n"], [[conta1, conta2]], 'SF025', cadastra_conta_movimento),
+    ("Cadastra Conta Movimento", ["f", "y", "v"], [[conta1, conta2]], 'SF025', cadastra_conta_movimento),
     ("Cadastra Classificação Cliente", ["p", "b", "l"], [[clienteClassificacao1, clienteClassificacao2]], 'SP040', cadastra_classificacao_cliente),
     ("Cadastra Marca", ["p", 'y', 'c'], [marca1], 'SP013', cadastra_marca),
     ("Cadastra Grupo", ["p", 'y', 'g'], [grupo1], 'SP009', cadastra_grupo),
@@ -68,7 +68,7 @@ def smoke(index_inicio, insere_mensagem, step):
     global opcoes
     etapasSlice = opcoes[index_inicio:]
 
-    step(index_inicio)
+    step(index_inicio + 0.02)
 
     # Ajusta o loop para começar no índice de início fornecido0
     for cont, (nomeTela, atalhos, dados, rastros, cadastro, *params) in enumerate(
@@ -101,7 +101,7 @@ def smoke(index_inicio, insere_mensagem, step):
             insere_mensagem(f"✔ {nomeTela}", 2)
 
         # Atualiza o passo
-        step(cont)
+        step(cont + 0.04)
 
     # Finalização bem-sucedida
     step(len(opcoes))
