@@ -332,8 +332,10 @@ def cadastra_orcamento(orcamento):
             escreve(formaPagamento['formaPagamento'], 1)
             escreve(formaPagamento['desconto'], 1)
             if formaPagamento['entrada'] != '-1': escreve(formaPagamento['entrada'], 1)
-            if formaPagamento['formaCombinada'] == 1:
+            sleep(0.5)
+            if formaPagamento['formaCombinada'] == '1':
                 press('space')
+            sleep(0.5)
             press(['enter', 'enter'])
         sleep(0.7)
         if valida_grid('', 'centroDireito', formaPagamento['validacao']): return True
