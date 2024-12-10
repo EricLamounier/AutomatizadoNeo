@@ -80,7 +80,7 @@ def cadastra_pessoa_municipio_logradouro(pessoa):
     sleep(1)
     novo(1)  # Novo logradouro
     cadastra_logradouro(pessoa["logradouro"])
-    sleep(1)
+    sleep(0.5)
     if valida_cadastro_inicial() == "":
         return True  # Nao foi criado
     seleciona(2)  # Seleciona o logradouro criado
@@ -185,7 +185,7 @@ def cadastra_empresa(
     if valida_cadastro_inicial() == "":
         return True  # Nao foi criado
 
-    seleciona(1)  # Seleciona a pessoa criada (empresa)
+    seleciona(0.5)  # Seleciona a pessoa criada (empresa)
 
     escreve(empresa["perfilInformante"], 1)
 
@@ -200,7 +200,7 @@ def cadastra_empresa(
     if cadastra_pessoa_empresa(empresa["responsavelLegal"]):
         return True
     sleep(1)
-    seleciona(1)
+    seleciona(0.5)
 
     if seleciona_certificado(): return True
     sleep(1)
