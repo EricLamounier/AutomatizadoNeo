@@ -114,7 +114,7 @@ def validacao_dav_estoque(dav):
     press('insert')
     sleep(1.5)
     for produto in dav['itens']['produtos']:
-        produto['validacaoEstoque'][18] = obter_data(0)
+        #produto['validacaoEstoque'][18] = obter_data(0)
         if valida_grid(produto['produto'], 'centroDireito', produto['validacaoEstoque'], [18]): return True
         hotkey('shift', 'backspace')
         sleep(0.5)
