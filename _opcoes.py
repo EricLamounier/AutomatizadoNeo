@@ -68,12 +68,12 @@ def smoke(index_inicio, insere_mensagem, step):
     global opcoes
     etapasSlice = opcoes[index_inicio:]
 
-    step(index_inicio + 0.02)
+    step(0.5 if index_inicio == 0 else index_inicio)
 
     # Ajusta o loop para começar no índice de início fornecido0
     for cont, (nomeTela, atalhos, dados, rastros, cadastro, *params) in enumerate(
         etapasSlice, start=index_inicio
-    ):
+    ): 
 
         cancelaExecucao = False
         teste["forcaCancelaExecucao"] = False
@@ -101,7 +101,7 @@ def smoke(index_inicio, insere_mensagem, step):
             insere_mensagem(f"✔ {nomeTela}", 2)
 
         # Atualiza o passo
-        step(cont + 0.04)
+        step(1 if cont == 0 else cont)
 
     # Finalização bem-sucedida
     step(len(opcoes))
