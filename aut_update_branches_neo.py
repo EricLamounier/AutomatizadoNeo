@@ -1,6 +1,5 @@
 import subprocess
-from os import chdir, getcwd
-import tkinter
+from os import chdir
 
 def run_command(command):
     result = subprocess.run(command.split(), capture_output=True, text=True)

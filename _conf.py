@@ -4,17 +4,6 @@ from pywinauto.mouse import click as pyWinClick
 app = None
 main_window = None
 
-def configura_pywinauto(arg):
-    global app
-    global main_window
-    try:
-        app = Application(backend="uia").connect(title="Neo - #empresateste")
-        main_window = app.window(title="Neo - #empresateste")
-        return False
-    except Exception as e:
-        messagebox.showerror('Erro encontrada!', f'Parece que o Neo não está aberto. Por favor, certifique-se de estar com o Neo aberto em apenas uma instância!\n\nErro:\n{e}')
-        return True
-
 def cadastra_logradouro(logradouro):
     escreve(logradouro["tipo"], 1)
 
@@ -49,13 +38,9 @@ def cadastra_forma_cobranca(formaCobranca):
     novo(1)
 
     escreve(formaCobranca["cobranca"], 1)
-
     escreve(formaCobranca["tipo"], 1)
-
     escreve(formaCobranca["vencimento"], 1)
-
     escreve(formaCobranca["cobrancapdvnfcedavrapido"], 1)
-
     salva()
 
     if valida_grid(
@@ -206,42 +191,6 @@ def clica_menu_auxiliar(tela):
 
     except Exception as e:
         print(f"Erro: {e}")
-
-mapa_neo = []
-def mapeia_neo():
-    try:
-        app = Application(backend="uia").connect(title="Neo - #empresateste")
-        main_window = app.window(title="Neo - #empresateste")
-        # Popula varTest com os descendentes da janela principal
-        for child in main_window.descendants():
-            mapa_neo.append(child)
-    except Exception as e:
-        print(f"Erro: {e}")
-
-def entra_na_tela_neo_pywinauto(tela):
-    try:
-        app = Application(backend="uia").connect(title="Neo - #empresateste")
-        main_window = app.window(title="Neo - #empresateste")
-        for child in main_window.descendants():
-            window_text = child.window_text()
-
-            if window_text == tela and child.element_info.control_type == 'Pane':
-                child.click_input()
-                child.click_input()
-                sleep(1)
-                break  # Encontrado o botão, podemos sair do loop para otimizar
-
-    except Exception as e:
-        print(f"Erro: {e}")
-
-def entra_na_tela_2(quantidadeDireita, modulo):
-    press('alt')
-    sleep(1)
-    press(modulo)
-    clicaCentro()
-    for x in range(quantidadeDireita):
-        press('right')
-    press('enter')
 
 def clica_estoque(tela, campoAClicar, timeout=1):
      

@@ -23,7 +23,7 @@ def certificado_realtec():
                         botaoOk.click_input()
                         isOn = True  # Encerra o loop
                         return False
-                        break
+                        #break
             if not isOn:
                 scroll(-105)
 

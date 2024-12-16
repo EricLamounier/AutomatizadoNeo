@@ -2,7 +2,7 @@ empresa = {
     "pessoa": {
         "tipoPessoa": "juridica",
         "documento": " 04248801000121",
-        "tipoIE": "contribuinte imcs",
+        # "tipoIE": "contribuinte imcs",
         "IE": "002.149.581/0097",
         "nome": "#empresaTeste",
         "nomeUsual": "",
@@ -133,7 +133,6 @@ conta1 = {
     "planoDeContas": "5",  # Caixa Geral
     "tipo": "caixa",
     "controleCheque": "",
-    "validacao": "",
     "validacao": ["Caixa Geral", "1", "Caixa", "Não Permite", "S", ""],
     "contaBancaria": None,
 }
@@ -292,7 +291,7 @@ clienteClassificacao2 = {
         "",
     ],
 }
-
+"""
 clienteClassificacao3 = {
     "nome": "bloqueia limite",
     "cobrar": "",
@@ -330,6 +329,7 @@ clienteClassificacao3 = {
         "",
     ],
 }
+"""
 
 pessoa1 = {
     "tipoPessoa": "fisica",

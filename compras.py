@@ -1,23 +1,5 @@
 from _conf import *
 
-def clica_situacao_filtro(tela, campoAClicar, timeout=1):
-    try:
-        app = Application(backend="uia").connect(title="Neo - #empresateste")
-        main_window = app.window(title="Neo - #empresateste")
-        # Obter a janela do filtro
-        telaAtual = main_window.window(title=tela)
-
-        # Acessar diretamente o grupo "Situação"
-        situacao_group = telaAtual.child_window(title="Situação")
-
-        # Tentar encontrar e clicar no controle "campoAClicar" dentro do grupo "Situação"
-        situacao_child = situacao_group.child_window(title=campoAClicar)
-
-        # Clicar diretamente no controle sem verificações extras
-        situacao_child.click_input()
-    except Exception as e:
-        print(f"Erro ao tentar clicar no botão: {e}")
-
 def clica_variacao():
     try:
         app = Application(backend="uia").connect(title="Neo - #empresateste")
@@ -368,6 +350,7 @@ def cadastra_entrada_compra_importacao_xml(compra=""):
     press('esc')
     return False
 
+# TODO NAO ESTA VALIDANDO OLHAR NA FUNCAO DE ENTRADA COMPRA XML SE ESTA SENDO CHAMADA
 def valida_entrada_compra_importacao_xml(compra):
     sleep(1)
     press("insert")  # Sai do filtro

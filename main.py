@@ -4,7 +4,7 @@ import socket
 import sys
 import threading
 from os import mkdir
-from os.path import join, dirname, exists, abspath
+from os.path import join, dirname, exists
 from subprocess import run, CalledProcessError
 from keyboard import add_hotkey
 from pyautogui import click, size, hotkey
