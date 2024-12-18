@@ -2,7 +2,7 @@ empresa = {
     "pessoa": {
         "tipoPessoa": "juridica",
         "documento": " 04248801000121",
-        # "tipoIE": "contribuinte imcs",
+        "tipoIE": "contribuinte icms",
         "IE": "002.149.581/0097",
         "nome": "#empresaTeste",
         "nomeUsual": "",
