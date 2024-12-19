@@ -189,7 +189,7 @@ def cadastra_dav(dav):
     modulo = {
         "pasta": "vendas",
         "imagem": dav["imagemRodapeDav"],
-        "inicio": "650x700",
+        "inicio": "700x700",
         "fim": "1498x820",
     }
     if imagens_diferentes(modulo):
@@ -388,7 +388,7 @@ def cadastra_orcamento(orcamento):
     modulo = {
         "pasta": "orcamento",
         "imagem": 'orcamentoRodapeDAV',
-        "inicio": "650x700",
+        "inicio": "700x700",
         "fim": "1498x820",
     }
     if imagens_diferentes(modulo):
@@ -500,7 +500,7 @@ def cadastra_condicional(condicional):
     modulo = {
         "pasta": "condicional",
         "imagem": "imagemRodapeDav",
-        "inicio": "650x700",
+        "inicio": "700x700",
         "fim": "1498x820",
     }
     if imagens_diferentes(modulo):
