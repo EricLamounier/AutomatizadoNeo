@@ -1,85 +1,7 @@
 from _conf import *
 
 
-def clica_privilegio():
-    try:
-        app = Application(backend="uia").connect(title="Neo - #empresateste")
-        main_window = app.window(title="Neo - #empresateste")
-        usuario = main_window.child_window(
-            title="Usuário", found_index=0
-        )  # Ajuste o índice conforme necessário
 
-        contaBancaria = usuario.child_window(title="Privilégio", control_type="Pane")
-        contaBancaria.click_input()
-
-    except Exception as e:
-        print(f"Erro: {e}")
-
-
-def clica_replicar_para_todas_as_guias():
-    try:
-        app = Application(backend="uia").connect(title="Neo - #empresateste")
-        main_window = app.window(title="Neo - #empresateste")
-        clienteClassificacao = main_window.child_window(
-            title="Incluir - Cliente Classificação"
-        )
-
-        replicarParaTodasAsGuias = clienteClassificacao.child_window(
-            title="Replicar para todas as guias"
-        )
-        replicarParaTodasAsGuias.click_input()
-    except Exception as e:
-        print(f"Erro: {e}")
-
-
-def cadastra_marca(marca):
-    sleep(1)
-    novo(0.5)
-    escreve(marca["marca"], 1)
-    salva()
-
-    if valida_grid('', "centroDireito", marca["validacao"]):
-        return True
-    press('esc')
-    return False
-
-
-def cadastra_classificacao_cliente(classificacoes):
-    for classificacao in classificacoes:
-        sleep(1)
-        novo()
-
-        escreve(classificacao["nome"], 1)
-
-        escreve(classificacao["cobrar"], 1)
-
-        escreve(classificacao["mensagem"], 1)
-
-        escreve(classificacao["bloqueiaVendaAPrazo"], 1)
-
-        escreve(classificacao["bloqueiaAtraso"], 1)
-
-        if classificacao["bloqueiaAtraso"] != "n":
-            escreve(classificacao["mensagemBloqueiaAtrasoMensagem"], 1)
-
-        escreve(classificacao["bloqueiaLimiteCredito"], 0)
-
-        if classificacao["bloqueiaLimiteCredito"] != "n":
-            press("enter")
-            escreve(classificacao["mensagemBloqueiaCreditoMensagem"], 0)
-
-        sleep(0.3)
-        clicaCentro()
-        sleep(0.3)
-        clica_replicar_para_todas_as_guias()
-        sleep(0.5)
-        salva(1)
-
-        if valida_grid(classificacao["nome"], "centroDireito", classificacao["validacao"]):
-            return True
-
-    press('esc')
-    return False
 
 
 def cadastra_pessoa(pessoa):
@@ -160,40 +82,7 @@ def cadastra_pessoa(pessoa):
     return False
 
 
-def cadastra_usuario(usuario):
-    sleep(1)
 
-    novo(1)
-    escreve(usuario["usuario"], 1)
-
-    escreve(usuario["login"], 1)
-
-    escreve(usuario["senha"], 1)
-
-    escreve(usuario["senha"], 1)  # Confirmar senha
-
-    escreve(usuario["RFID"], 1)
-
-    escreve(usuario["menuPrincipal"], 1)
-
-    escreve(usuario["tempoLogado"], 1)
-
-    escreve(usuario["emailAtendimento"], 1)
-
-    sleep(0.5)
-    salva(0.3)
-
-    clica_privilegio()
-    sleep(1)
-    escreve(usuario["privilegio"], 0)
-    salva(1)
-
-    if valida_grid("", "centroDireito", usuario["validacao"]):
-        return True  # Erro
-
-    press("esc")
-    sleep(0.5)
-    return False
 
 
 def cadastra_funcionario(funcionario):
@@ -242,29 +131,6 @@ def cadastra_municipio(municipio):
         return True
 
     press("esc")
-    return False
-
-
-def cadastra_unidade(unidades):
-    for unidade in unidades:
-        sleep(1)
-        clicaCentro()
-        novo(1)
-        escreve(unidade["unidade"], 1)
-        escreve(unidade["simbolo"], 1)
-        sleep(1)
-
-        if unidade["permiteDecimal"] == "s":
-            press("up")
-        else:
-            press("down")
-        sleep(0.5)
-
-        press(["enter", "enter"])
-        sleep(0.5)
-    if valida_grid('', "centroDireito", unidades[0]["validacao"]):
-        return True
-    press('esc')
     return False
 
 
