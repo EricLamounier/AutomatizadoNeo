@@ -1,43 +1,5 @@
 from _conf import *
 
-
-def clique_parametros_gerais(campoAClicar, timeout=1):
-    try:
-        app = Application(backend="uia").connect(title="Neo - #empresateste")
-        main_window = app.window(title="Neo - #empresateste")
-        parameters_window = main_window.child_window(
-            title="Parâmetros Gerais", control_type="Window"
-        )
-        tree_view = parameters_window.child_window(control_type="Tree")
-
-        principal_item = tree_view.child_window(
-            title=campoAClicar, control_type="TreeItem"
-        )
-        principal_item.click_input(double=True)
-        sleep(1.5)
-    except Exception as e:
-        print(f"Erro ao tentar clicar no botão: {e}")
-
-
-def clique_combo(indexCampoAClicar, tela, timeout=1):
-    cont = 1
-    # 2.54 11
-    try:
-        app = Application(backend="uia").connect(title="Neo - #empresateste")
-        main_window = app.window(title="Neo - #empresateste")
-        parametrosGerais = main_window.child_window(title=tela, found_index=0)
-
-        for child in parametrosGerais.descendants():
-            if child.element_info.control_type == "Edit":
-                if cont == indexCampoAClicar:
-                    child.click_input(double=True)
-                    break
-                cont += 1
-
-    except Exception as e:
-        print(f"Erro: {e}")
-
-
 def parametros_gerais(parametros):
 
     sleep(6)  # Aguarda abrir

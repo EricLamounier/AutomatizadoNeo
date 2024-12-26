@@ -609,6 +609,7 @@ produto1 = {
         "origem": "8",
         "icms": "21",  # 0%
         "ncm": "92079010",
+        "nfce": "",
     },
     "validacao": [
         "#produto1",
@@ -693,6 +694,7 @@ produto2 = {
         "origem": "8",
         "icms": "2",  # 12%
         "ncm": "92079010",
+        "nfce": "",
     },
     "validacao": [
         "#produto2",
@@ -777,6 +779,7 @@ produto3 = {
         "origem": "8",
         "icms": "2",  # 12%
         "ncm": "92079010",
+        "nfce": "",
     },
     "validacao": [
         "#produto3",
