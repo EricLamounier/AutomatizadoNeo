@@ -123,41 +123,37 @@ def validacao_dav_estoque(dav):
 
 def cadastra_dav(dav): 
      
-    # sleep(0.5)
-    # press('insert') # Filtro
-    # sleep(1)
-    # novo(2)
+    sleep(0.5)
+    press('insert') # Filtro
+    sleep(1)
+    novo(2)
 
-    # escreve("", 3)
-    # escreve(dav["cfop"], 1)
-    # escreve(dav["cliente"], 2)
-    # escreve(dav["funcionario"], 1)
-    # escreve(dav["formaPagamento"], 1)
-    # escreve(dav["frete"], 4)
-    # sleep(1)
+    escreve("", 3)
+    escreve(dav["cfop"], 1)
+    escreve(dav["cliente"], 2)
+    escreve(dav["funcionario"], 1)
+    escreve(dav["formaPagamento"], 1)
+    escreve(dav["frete"], 4)
+    sleep(1)
 
     produtos = dav["itens"]["produtos"]
     servicos = dav["itens"]["servicos"]
 
-    # for produto in produtos:
-    #     escreve(produto["quantidade"], 1)
-    #     escreve(produto["produtoID"], 2)
-    #     escreve(produto["unitario"], 3)
-    #     sleep(1)
+    for produto in produtos:
+        escreve(produto["quantidade"], 1)
+        escreve(produto["produtoID"], 2)
+        escreve(produto["unitario"], 3)
+        sleep(1)
 
-    #     # Tem variacao
-    #     if isinstance(produto["grade"], list):
-    #         variacoes = produto["grade"]
-    #         for variacao in variacoes:
-    #             escreve(variacao["quantidade"], 1)
-    #         sleep(1)
-    #         salva(1)
-    #         press("enter")  # Incluir
-    #         sleep(0.5)
-
-    clica_menu_auxiliar("Incluir - DAV ")
-
-    return True
+        # Tem variacao
+        if isinstance(produto["grade"], list):
+            variacoes = produto["grade"]
+            for variacao in variacoes:
+                escreve(variacao["quantidade"], 1)
+            sleep(1)
+            salva(1)
+            press("enter")  # Incluir
+            sleep(0.5)
 
     if len(servicos) > 0:  # Possui servicos
         clica_menu_auxiliar("Incluir - DAV ")
@@ -257,9 +253,6 @@ def cadastra_dav(dav):
     if valida_grid(dav['total'], 'centroDireito', dav['validacao'], [15]): return True # TODO VALIDAR RELATORIO
     press('esc')
     return False
-
-from dados import *
-cadastra_dav(dav2)
 
 def validacao_contas_receber(davs):
     sleep(0.5)
