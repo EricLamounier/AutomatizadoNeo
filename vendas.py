@@ -110,9 +110,9 @@ def cadastra_cmv_dav():
     return False
 
 def validacao_dav_estoque(dav):
-    sleep(1.5)
+    sleep(0.5)
     press('insert')
-    sleep(1.5)
+    sleep(1)
     for produto in dav['itens']['produtos']:
         #produto['validacaoEstoque'][18] = obter_data(0)
         if valida_grid(produto['produto'], 'centroDireito', produto['validacaoEstoque'], [18]): return True
@@ -185,7 +185,7 @@ def cadastra_dav(dav):
         if valida_grid("", "centroDireito", dav["validacaoItensDAVAposDesconto"]):
             return True
 
-    sleep(2)
+    sleep(1.5)
     modulo = {
         "pasta": "vendas",
         "imagem": dav["imagemRodapeDav"],

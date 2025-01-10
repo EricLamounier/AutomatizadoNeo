@@ -23,11 +23,11 @@ def cadastra_produto(produto):
     fiscal = produto["fiscal"]
 
     # filtro
-    sleep(1)
+    sleep(0.5)
     escreve(cadastro["produto"])
-    sleep(0.7)
+    sleep(0.5)
     press("insert")
-    sleep(1)
+    sleep(0.5)
     novo(1)
 
     escreve(cadastro["barras"], 1)

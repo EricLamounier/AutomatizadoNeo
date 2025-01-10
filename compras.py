@@ -48,8 +48,8 @@ def cadastra_entrada_compra_manual(compra):
     sleep(0.5)
 
     press("insert")  # Sai do filtro
-    sleep(0.8)
-    novo(3)
+    sleep(0.5)
+    novo(2)
 
     escreve(principal["chaveNFe"])
 
@@ -220,8 +220,7 @@ def cadastra_entrada_compra_importacao_xml(compra=""):
                 escreve(edita["unitario"], 1)
 
                 escreve(edita["desconto"], 1)
-                
-                click(calcular_xy(793,387))
+                sleep(0.2)
                 
                 if produto["marcaNCM"]:
                     clica_atualizar_ncm_do_produto_com_ncm_do_xml(
@@ -412,7 +411,7 @@ def valida_contas_pagar(contasPagar):
     return False
 
 def validacao_entrada_compra_contas_a_pagar(compras):
-    sleep(1.5)
+    sleep(0.5)
     press('insert') # Sai do filtro
     sleep(1.5)
 
@@ -424,7 +423,7 @@ def validacao_entrada_compra_contas_a_pagar(compras):
 
 def validacao_entrada_compra_produto(compras=''):
      
-    sleep(1.5)
+    sleep(0.5)
     press('insert') # Sai do filtro
     sleep(1.5)
 

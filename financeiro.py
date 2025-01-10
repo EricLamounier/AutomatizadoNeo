@@ -16,7 +16,7 @@ def clica_setinha_novo(tela, indice=31): # CR 19 CP 17
                 rect = child.rectangle()
                 x = rect.left + (rect.right - rect.left) // 2
                 y = rect.top + (rect.bottom - rect.top) // 2 + 35
-                click(x, y)
+                clicaEsquerdo(x, y)
                 break                
 
     except Exception as e:
@@ -145,7 +145,7 @@ def contas_receber_avulso(contasReceber):
     return False
 
 def cadastra_contas_receber_avulso(contasReceber):
-    sleep(1.5)
+    sleep(0.5)
     press('insert')
     sleep(1)
     
@@ -244,7 +244,7 @@ def contas_pagar_avulso_multiplas_parcelas(contasPagar):
     return False
     
 def cadastra_contas_pagar_avulso(contasPagar):
-    sleep(1)
+    sleep(0.5)
     press('insert')
     sleep(1)
     

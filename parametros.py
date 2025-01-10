@@ -111,7 +111,7 @@ def parametros_gerais(parametros):
         "pasta": "parametros",
         "imagem": "geralFinanceiro",
         "inicio": "724x265",
-        "fim": "1334x448",
+        "fim": "1334x620",
     }
     if imagens_diferentes(modulo):
         return True
