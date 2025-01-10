@@ -40,17 +40,11 @@ def seleciona_certificado():
     botaoCertificado = main_window.child_window(found_index=26)
     
     rect = botaoCertificado.rectangle()
-    pyWinClick(
-        coords=(
-            rect.left + (rect.right - rect.left) // 2 + 125,
-            rect.top + (rect.bottom - rect.top) // 2,
-        )
-    )
+    clicaEsquerdo(rect.left + (rect.right - rect.left) // 2 + 125,rect.top + (rect.bottom - rect.top) // 2)
     
     sleep(2)
     
     return certificado_realtec()
-
 
 def valida_cadastro_inicial():
     copy("")
@@ -61,7 +55,7 @@ def valida_cadastro_inicial():
 
 
 def cadastra_pessoa_municipio_logradouro(pessoa):
-    sleep(2)
+    sleep(1)
     escreve(pessoa["tipoPessoa"], 1)
 
     escreve(pessoa["documento"], 1)
@@ -119,7 +113,7 @@ def cadastra_pessoa_municipio_logradouro(pessoa):
 
 
 def cadastra_pessoa_empresa(pessoa):
-    sleep(2)
+    sleep(1)
     escreve(pessoa["tipoPessoa"])
 
     escreve(pessoa["documento"])
