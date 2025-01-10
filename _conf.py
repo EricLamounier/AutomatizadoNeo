@@ -1,6 +1,6 @@
 from commonFunctionsAutomatizados import *
 from pywinauto import Application
-from pywinauto.mouse import click as pyWinClick
+from pywinauto.mouse import click, move as pyWinClick
 app = None
 main_window = None
 
@@ -37,24 +37,16 @@ def clica_menu_auxiliar(tela):
     try:
         app = Application(backend="uia").connect(title="Neo - #empresateste")
         main_window = app.window(title="Neo - #empresateste")
-        produto = main_window.child_window(title=tela, found_index=0)
+        item = main_window.child_window(title=tela, found_index=0)
 
-        # Iterando sobre os descendentes até encontrar o elemento na posição 134
-        for cont, child in enumerate(produto.descendants(), start=1):
-            try:
-                if cont == 134:
-                    # Obtém as coordenadas do controle e clica
-                    rect = child.rectangle()
-                    pyWinClick(
-                        coords=(
-                            rect.left + (rect.right - rect.left) // 2 - 15,
-                            rect.top + (rect.bottom - rect.top) // 2,
-                        )
-                    )
-                    break
-            except Exception as e:
-                print(f"Erro interno no loop: {e}")
+        try:
+            menu_auxiliar = item.window(found_index=122)
+            rect = menu_auxiliar.rectangle()
 
+            clicaEsquerdo(rect.left + (rect.right - rect.left) // 2 - 35, rect.top + (rect.bottom - rect.top) // 2)
+        except Exception as e:
+            print(f"Erro interno no loop: {e}")
+        
     except Exception as e:
         print(f"Erro: {e}")
     
