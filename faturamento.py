@@ -93,8 +93,8 @@ def cadastra_nota_fiscal(notaFiscal):
     modulo = {
         "pasta": "notafiscal",
         "imagem": "imagemRodapeNotaFiscal",
-        "inicio": "700x700",
-        "fim": "1498x820",
+        "inicio": "433x673",
+        "fim": "1485x785",
     }
     if imagens_diferentes(modulo):
         return True
