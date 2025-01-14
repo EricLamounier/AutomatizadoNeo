@@ -3,7 +3,7 @@ from _conf import *
 def parametros_gerais(parametros):
 
     sleep(6)  # Aguarda abrir
-    clique_parametros_gerais("Principal")
+    clique_parametros("Principal")
 
     press(
         [
@@ -31,7 +31,7 @@ def parametros_gerais(parametros):
     if imagens_diferentes(modulo):
         return True
 
-    clique_parametros_gerais("Compras")
+    clique_parametros("Compras")
 
     press("enter")  # Habilita CRT
     escreve("sim", 1)
@@ -50,7 +50,7 @@ def parametros_gerais(parametros):
     if imagens_diferentes(modulo):
         return True
 
-    clique_parametros_gerais("Vendas")
+    clique_parametros("Vendas")
     press(
         [
             "enter",
@@ -89,7 +89,7 @@ def parametros_gerais(parametros):
     if imagens_diferentes(modulo):
         return True
 
-    clique_parametros_gerais("Financeiro")
+    clique_parametros("Financeiro")
 
     press("enter")  # Tipo de Jutos
     escreve("comp", 1)
@@ -116,7 +116,7 @@ def parametros_gerais(parametros):
     if imagens_diferentes(modulo):
         return True
 
-    clique_parametros_gerais("Faturamento")
+    clique_parametros("Faturamento")
 
     press("enter")  # NFe
     escreve("homol", 1)
@@ -137,7 +137,7 @@ def parametros_gerais(parametros):
     if imagens_diferentes(modulo):
         return True
 
-    clique_parametros_gerais("Geral")
+    clique_parametros("Geral")
 
     press("enter")  # Geral
     escreve("codigo interno", 2)
