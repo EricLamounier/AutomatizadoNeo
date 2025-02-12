@@ -50,7 +50,7 @@ opcoes = [
     ("Cadastrar DAV 1", ['v', 'enter'], [dav1], 'SV001 - SV003', cadastra_dav),
     ("Cadastrar DAV 2", ['v', 'enter'], [dav2], 'SV001 - SV003', cadastra_dav),
     ("Validacões DAV - Contas Receber", ['f', 'enter'], [[dav1, dav2]], 'SF018 - SF006', validacao_contas_receber),
-    ("Validações DAV - Estoque", ['p', 'p'], [dav2], 'SP001 - SP006', validacao_dav_estoque),
+    ("Validações DAV - Estoque", ['p', 'p'], [[dav2]], 'SP001 - SP006', validacao_dav_estoque),
     ("Cadastra Orçamento", ['v', 'o', 'enter', 'enter'], [orcamento1], 'SV004 - SV006',  cadastra_orcamento),
     ("Cadastra Condicional", ['v', 'c', 'enter', 'enter'], [condicional1], 'SV012 - SV014', cadastra_condicional),
     ("Cadastra Documento Fiscal", ['t', 'y', 'd'], [documentoFiscal1], 'ST007', cadastra_documento_fiscal),

@@ -68,7 +68,7 @@ def cadastra_dav_estagio(estagio):
         return True
     press('esc')
     return False
-
+"""
 def clica_rateio_desconto():
     cont = 1
     try:
@@ -253,11 +253,12 @@ def cadastra_dav(dav):
     if valida_grid(dav['total'], 'centroDireito', dav['validacao'], [15]): return True # TODO VALIDAR RELATORIO
     press('esc')
     return False
+"""
 
 def validacao_contas_receber(davs):
     sleep(0.5)
     press('insert')
-    sleep(1.5)
+    sleep(1)
     for dav in davs:
         contasReceber = dav['contasReceber']
         cont = 1
@@ -272,7 +273,7 @@ def validacao_contas_receber(davs):
             cont += 1
         sleep(1)
         hotkey('shift', 'backspace')
-        sleep(1.5)
+        sleep(1)
         if valida_grid(contasReceber["parcelas"], "centroDireito", contasReceber["validacao"], contasReceber['indicesHora']):
             return True
     sleep(0.7)

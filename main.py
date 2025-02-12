@@ -56,7 +56,7 @@ def limpa():
 
 
 def cria_pasta():
-    base_dir = rf"\\10.1.10.50\Users\ebotelho\Automatizados\{test["teste"]["nomeExe"]}\Imagens"
+    base_dir = rf"\\{ipCaminhoImagensNeo}\Users\ebotelho\Automatizados\{test["teste"]["nomeExe"]}\Imagens"
     if not exists(base_dir):  # Se nao existir a pasta Imagens, cria
         mkdir(base_dir)
 
@@ -246,6 +246,7 @@ def criar_interface():
     root.title(WINDOW_TITLE)
     root.iconbitmap(ICON_PATH)
     root.geometry("500x450")
+    root.resizable(False, False)
 
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("testeautomatizado")
     ctypes.windll.user32.LoadIconW(0, ICON_PATH)
@@ -317,7 +318,7 @@ def criar_interface():
     insere_mensagem('✔ ATENÇÃO!')
     insere_mensagem('✔ Certifíque-se de ter o CERTIFICADO REALTEC instalado na sua máquina!')
     insere_mensagem('✔ Tenha apenas uma instância do NEO aberta!')
-    insere_mensagem(r'✔ Qualquer dúvida acessar: \\10.1.10.50\Users\ebotelho\Desktop\Automatizados\FAQ.docx')
+    insere_mensagem(rf'✔ Qualquer dúvida acessar: \\{ipCaminhoImagensNeo}\Users\ebotelho\Desktop\Automatizados\FAQ.docx')
 
     # Barra de progresso
     progress = ttk.Progressbar(

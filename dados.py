@@ -1466,7 +1466,7 @@ entradaCompraXML1 = {
     "fornecedor": "3",
     "funcionario": "1",
     "formaPagamento": "3",
-    "xml": r"\\10.1.10.50\Users\ebotelho\Automatizados\AutomatizadoNeo\Codigo\31130611069897000126550010000310751005835454-nfe.xml",
+    "xml": rf"\\Estagiario-01\Users\ebotelho\Automatizados\AutomatizadoNeo\Codigo\31130611069897000126550010000310751005835454-nfe.xml",
     "imagemRodapeXMLTotalXML": "entradaCompraImportacaoXML1RodapeTotalXML",
     "imagemRodapeXMLTotalItens": "entradaCompraImportacaoXML1RodapeTotalItens",
     "imagemRodapeEntradaCompra": "entradaCompraXML1Rodape",
@@ -1693,7 +1693,7 @@ entradaCompraXML2 = {
     "fornecedor": "3",
     "funcionario": "1",
     "formaPagamento": "3",
-    "xml": r"\\10.1.10.50\Users\ebotelho\Automatizados\AutomatizadoNeo\Codigo\35130746344354000154550000000622681008065628-nfe.xml",
+    "xml": r"\\Estagiario-01\Users\ebotelho\Automatizados\AutomatizadoNeo\Codigo\35130746344354000154550000000622681008065628-nfe.xml",
     "imagemRodapeXMLTotalXML": "entradaCompraImportacaoXML2RodapeTotalXML",
     "imagemRodapeXMLTotalItens": "entradaCompraImportacaoXML2RodapeTotalItens",
     "imagemRodapeEntradaCompra": "entradaCompraXML2Rodape",
@@ -2048,6 +2048,7 @@ dav1 = {
     "formaCobranca": "1",  # Carteira
     "frete": "",
     "cadastraCMV": 1,
+    "geraNFCe": 0,
     "itens": {
         "produtos": [
             {
@@ -2196,8 +2197,7 @@ dav1 = {
         "servicos": [],
         "validacaoProdutos": [],
         "validacaoServicos": [],
-    },
-    "validacaoItensDAV": [
+        "validacaoItensDAV": [
         "",
         "2",
         "P",
@@ -2246,6 +2246,7 @@ dav1 = {
         "Unidade",
         "",
     ],
+    },
     "validacaoItensDAVAposDesconto": [
         "",
         "2",
@@ -2380,6 +2381,7 @@ dav2 = {
     'total': '1.974,80',
     "frete": "",
     "cadastraCMV": 0,
+    "geraNFCe": 0,
     "itens": {
         "produtos": [
             {
@@ -2418,8 +2420,7 @@ dav2 = {
                 "unitario": "150",
             }
         ],
-    },
-    "validacaoItensDAV": [
+        "validacaoItensDAV": [
         "",
         "4",
         "S",
@@ -2514,6 +2515,7 @@ dav2 = {
         "Unidade",
         "",
     ],
+    },
     "validacaoItensDAVAposDesconto": [
         "",
         "4",
