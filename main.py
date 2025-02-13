@@ -88,7 +88,7 @@ def encontrar_indice(nome):
             return index
     return None
 
-
+"""
 def rodar_comando_banco(caminho):
     database_path = fr"{caminho}"
 
@@ -117,11 +117,11 @@ def rodar_comando_banco(caminho):
             (1, 94, 'TFFiltroContasPagar', 'rbTodosSituacao', 'Checked', 999),
         ]
 
-        query = """
+        query = `
             INSERT INTO FILTROPADRAO 
             (EMPCODIGO, FILPCONTADOR, FILPTELA, FILPCAMPO, FILPVALOR, USUCODIGO) 
             VALUES (?, ?, ?, ?, ?, ?)
-        """
+        `
 
         for q in queries:
             cur.execute(query, q)
@@ -141,7 +141,7 @@ def rodar_comando_banco(caminho):
             conn.close()
         return response, msg
 
-
+"""
 def iniciar():
 
     global app
@@ -154,7 +154,7 @@ def iniciar():
 
     print(test["etapa"]['index'])
 
-    if int(test["etapa"]['index']) == 0:
+    """if int(test["etapa"]['index']) == 0:
         caminho_banco = entry_banco.get()
         caminho_banco = caminho_banco.replace('\"', '').strip()
 
@@ -162,9 +162,8 @@ def iniciar():
         if not response:
             print(f'Comando executado com erro! - {msg}')
         else:
-            print('Comando executado com sucesso!')
+            print('Comando executado com sucesso!')"""
 
-    return
     cria_pasta()
 
     click_center()
@@ -335,9 +334,9 @@ def criar_interface():
 
     label_banco = ttk.Label(configuracao, text="Caminho do Banco")
     label_banco.grid(row=2, column=0, padx=config["labelPadX"], sticky="w")
-    entry_banco = ttk.Entry(configuracao)
+    entry_banco = ttk.Entry(configuracao, state=DISABLED)
     entry_banco.grid(row=3, column=0, columnspan=2, padx=config["inputPadX"], pady=config["inputPadY"], sticky="ew")
-    entry_banco.focus_set()
+    #entry_banco.focus_set()
 
     obter_endereco_ip_nome()  # IP e Nome
 
