@@ -100,7 +100,6 @@ def cadastra_orcamento(orcamento):
 
     novo(1)
 
-
     pula(3)
     escreve(orcamento['funcionario'], 1)
     escreve(orcamento['frete'], 3)
@@ -224,12 +223,13 @@ def cadastra_orcamento(orcamento):
     press('esc') # Volta para o orcamento
     sleep(2)
 
-    orcamento['validacao5'][1] = orcamento['validacao5'][2] = obter_data(0)
+    orcamento['validacao5'][2] = orcamento['validacao5'][3] = obter_data(0)
     if valida_grid('', 'centroDireito', orcamento['validacao5']): return True
 
     press('esc')
     return False
-
+from dados import *
+cadastra_orcamento(orcamento1)
 def cadastra_condicional(condicional):
     sleep(1)
     press('insert') # Sai do filtro
