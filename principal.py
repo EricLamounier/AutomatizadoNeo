@@ -16,7 +16,7 @@ def cadastra_municipio(municipio):
     press("esc")
     return False
 
-
+""" feito no common
 def cadastra_produto(produto):
 
     cadastro = produto["cadastro"]
@@ -80,3 +80,4 @@ def cadastra_produto(produto):
         return True
     press('esc')
     return False
+"""
