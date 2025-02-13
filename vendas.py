@@ -258,7 +258,7 @@ def cadastra_dav(dav):
 def validacao_contas_receber(davs):
     sleep(0.5)
     press('insert')
-    sleep(1)
+    sleep(0.5)
     for dav in davs:
         contasReceber = dav['contasReceber']
         cont = 1
@@ -278,9 +278,8 @@ def validacao_contas_receber(davs):
             return True
     sleep(0.7)
     press('esc')
-    return False
 
-def cadastra_orcamento(orcamento): 
+def cadastra_orcamento(orcamento):
     sleep(1)
     press('insert') # Sai do filtro
     sleep(0.5)
@@ -333,14 +332,14 @@ def cadastra_orcamento(orcamento):
             escreve(formaPagamento['formaPagamento'], 1)
             escreve(formaPagamento['desconto'], 1)
             if formaPagamento['entrada'] != '-1': escreve(formaPagamento['entrada'], 1)
-            sleep(0.5)
             if formaPagamento['formaCombinada'] == '1':
                 press('space')
-            sleep(0.5)
+            sleep(0.2)
             press(['enter', 'enter'])
         sleep(0.7)
         if valida_grid('', 'centroDireito', formaPagamento['validacao']): return True
 
+    return
     sleep(1.5)
     modulo = {
         "pasta": "orcamento",

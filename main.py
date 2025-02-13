@@ -152,8 +152,6 @@ def iniciar():
         "index": encontrar_indice(comboBox_inicio.get()),
     }
 
-    print(test["etapa"]['index'])
-
     """if int(test["etapa"]['index']) == 0:
         caminho_banco = entry_banco.get()
         caminho_banco = caminho_banco.replace('\"', '').strip()
