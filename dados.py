@@ -2725,7 +2725,7 @@ condicional1 = {
     },
     'validacaoProdutos': ['1', '1', '1000000000016', '', '', '', '#produto1', '9,00', '', '', '3,00', '27,00', '0,00', '0,00', '27,00', 'Aberto', '3105.90.90', 'Outros', '', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', 'Unidade', '2', '2', '1000000000023', '', '', '', '#produto2', '11,00', '', '', '20,00', '220,00', '0,00', '0,00', '220,00', 'Aberto', '3105.90.90', 'Outros', '', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', 'Decimal', ''],
     'validacao1': ['1', '#pessoaresponsável', '3', '#pessoa3', '', '06/11/2024', '247,00', '0,00', '0,00', '247,00', '06/11/2024', '0', '', 'Aberto', 'Tipo Condicional Teste', '', '', '3x S/E', '', ''],
-    'validacao2': ['1', '#pessoaresponsável', '3', '#pessoa3', '3', '11/11/2024', '247,00', '0,00', '0,00', '247,00', '11/11/2024', '0', '11/11/2024', 'Finalizado', 'Tipo Condicional Teste', '', '3x S/E', '', ''],
+    'validacao2': ['1', '#pessoaresponsável', '3', '#pessoa3', '4', '11/11/2024', '247,00', '0,00', '0,00', '247,00', '11/11/2024', '0', '11/11/2024', 'Finalizado', 'Tipo Condicional Teste', '', '3x S/E', '', ''],
     'validacaoDetalhamentoCondicional1': ['1000000000016', '', '1', '#produto1', '0,0000', '0,0000', '9,0000', '', '', '', '1000000000023', '', '2', '#produto2', '0,0000', '0,0000', '11,0000', '', '', '', ''],
     'validacaoDetalhamentoCondicional2': ['1000000000016', '', '1', '#produto1', '4,0000', '0,0000', '5,0000', '', '', '', '1000000000023', '', '2', '#produto2', '6,0000', '0,0000', '5,0000', '', '', '', ''],
     'validacaoDetalhamentoCondicional3': ['1000000000016', '', '1', '#produto1', '4,0000', '5,0000', '0,0000', '', '', '', '1000000000023', '', '2', '#produto2', '6,0000', '5,0000', '0,0000', '', '', '', ''],
