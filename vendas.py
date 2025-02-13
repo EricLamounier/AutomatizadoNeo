@@ -171,8 +171,22 @@ def cadastra_orcamento(orcamento):
     orcamento['validacao2'][1] = obter_data(0)
     if valida_grid('', 'centroDireito', orcamento['validacao2']): return True
 
-    press('f8') # Gerar DAV
+    
+    app = Application(backend="uia").connect(title="Neo - #empresateste")
+    main_window = app.window(title="Neo - #empresateste")
+    orcamentoTela = main_window.child_window(title="Orçamento ", found_index=0)
+    executar = main_window.child_window(title="Executar")
+    
+    gerarDAV = orcamentoTela.child_window(found_index=8)
+    gerarDAV.click_input()
     sleep(1)
+    press('left')
+    sleep((0.5))
+    press('space')
+    sleep(0.5)
+    executar.click_input()
+    
+    sleep(1.5)
 
     dav = orcamento['dav']
     escreve(dav['cfop'], 1)
