@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox, scrolledtext, DISABLED, NORMAL, END
 import socket
 import sys
+import firebirdsql
 import threading
 from os import mkdir
 from os.path import join, dirname, exists
@@ -14,7 +15,8 @@ from commonFunctionsAutomatizados import *
 from _opcoes import opcoes, smoke
 from commonFunctionsAutomatizados._dados import teste as test
 import ctypes
-# Variáveis globais
+import re
+
 current_line = 1
 
 def configuracao_inicial():
@@ -87,6 +89,59 @@ def encontrar_indice(nome):
     return None
 
 
+def rodar_comando_banco(caminho):
+    database_path = fr"{caminho}"
+
+    cur = None
+    conn = None
+    response = None
+    msg = None
+
+    try:
+        # Conectando ao banco de dados Firebird
+        conn = firebirdsql.connect(
+            host='127.0.0.1',
+            database=database_path,
+            user='SYSDBA',
+            password='masterke',
+            charset='WIN1252'
+        )
+
+        cur = conn.cursor()
+        queries = [
+            (1, 53, 'TFFiltroEntradaCompra', 'rbTodos', 'Checked', 999),
+            (1, 60, 'TFFiltroDAV', 'rbTodos', 'Checked', 999),
+            (1, 72, 'TFFiltroOrcamento', 'rbTodos', 'Checked', 999),
+            (1, 82, 'TFFiltroCondicional', 'rbTodos', 'Checked', 999),
+            (1, 93, 'TFFiltroContasReceber', 'rbTodosSituacao', 'Checked', 999),
+            (1, 94, 'TFFiltroContasPagar', 'rbTodosSituacao', 'Checked', 999),
+        ]
+
+        query = """
+            INSERT INTO FILTROPADRAO 
+            (EMPCODIGO, FILPCONTADOR, FILPTELA, FILPCAMPO, FILPVALOR, USUCODIGO) 
+            VALUES (?, ?, ?, ?, ?, ?)
+        """
+
+        for q in queries:
+            cur.execute(query, q)
+
+        conn.commit()
+        response = True
+
+    except firebirdsql.DatabaseError as e:
+        print(f"Erro ao conectar ao banco de dados: {e}")
+        response = False
+        msg = e
+    finally:
+        # Fechando cursor e conexão
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+        return response, msg
+
+
 def iniciar():
 
     global app
@@ -97,15 +152,26 @@ def iniciar():
         "index": encontrar_indice(comboBox_inicio.get()),
     }
 
+    print(test["etapa"]['index'])
+
+    if int(test["etapa"]['index']) == 0:
+        caminho_banco = entry_banco.get()
+        caminho_banco = caminho_banco.replace('\"', '').strip()
+
+        response, msg = rodar_comando_banco(caminho_banco)
+        if not response:
+            print(f'Comando executado com erro! - {msg}')
+        else:
+            print('Comando executado com sucesso!')
+
+    return
     cria_pasta()
 
     click_center()
     limpa()
 
     # Iniciar o teste em uma nova thread
-    threading.Thread(
-        target=lambda: smoke(teste["etapa"]["index"], insere_mensagem, step)
-    ).start()
+    threading.Thread(target=lambda: smoke(teste["etapa"]["index"], insere_mensagem, step)).start()
 
 
 def parar():
@@ -233,7 +299,7 @@ def click_center():
 
 def criar_interface():
     """Configura a interface gráfica principal da aplicação."""
-    global root, entry_ip, entry_nome, comboBox_inicio, text_output, progress, porcentagem, test
+    global root, entry_ip, entry_nome, entry_banco, comboBox_inicio, text_output, progress, porcentagem, test
     configuracao_inicial()
 
     WINDOW_TITLE = f"AutomatizadoNeo - {test["teste"]["versao"]}"
@@ -245,7 +311,7 @@ def criar_interface():
     root = tk.Tk()
     root.title(WINDOW_TITLE)
     root.iconbitmap(ICON_PATH)
-    root.geometry("500x450")
+    root.geometry("500x500")
     root.resizable(False, False)
 
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("testeautomatizado")
@@ -260,16 +326,18 @@ def criar_interface():
     label_ip = ttk.Label(configuracao, text="IP Máquina")
     label_ip.grid(row=0, column=0, padx=config["labelPadX"], sticky="w")
     entry_ip = ttk.Entry(configuracao)
-    entry_ip.grid(
-        row=1, column=0, padx=config["inputPadX"], pady=config["inputPadY"], sticky="ew"
-    )
+    entry_ip.grid(row=1, column=0, padx=config["inputPadX"], pady=config["inputPadY"], sticky="ew")
 
     label_nome = ttk.Label(configuracao, text="Nome Máquina")
     label_nome.grid(row=0, column=1, padx=config["labelPadX"], sticky="w")
     entry_nome = ttk.Entry(configuracao)
-    entry_nome.grid(
-        row=1, column=1, padx=config["inputPadX"], pady=config["inputPadY"], sticky="ew"
-    )
+    entry_nome.grid(row=1, column=1, padx=config["inputPadX"], pady=config["inputPadY"], sticky="ew")
+
+    label_banco = ttk.Label(configuracao, text="Caminho do Banco")
+    label_banco.grid(row=2, column=0, padx=config["labelPadX"], sticky="w")
+    entry_banco = ttk.Entry(configuracao)
+    entry_banco.grid(row=3, column=0, columnspan=2, padx=config["inputPadX"], pady=config["inputPadY"], sticky="ew")
+    entry_banco.focus_set()
 
     obter_endereco_ip_nome()  # IP e Nome
 
