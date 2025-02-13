@@ -308,7 +308,8 @@ def criar_interface():
     root = tk.Tk()
     root.title(WINDOW_TITLE)
     root.iconbitmap(ICON_PATH)
-    root.geometry("500x500")
+    #root.geometry("500x500")
+    root.geometry("500x450")
     root.resizable(False, False)
 
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("testeautomatizado")
@@ -330,10 +331,10 @@ def criar_interface():
     entry_nome = ttk.Entry(configuracao)
     entry_nome.grid(row=1, column=1, padx=config["inputPadX"], pady=config["inputPadY"], sticky="ew")
 
-    label_banco = ttk.Label(configuracao, text="Caminho do Banco")
-    label_banco.grid(row=2, column=0, padx=config["labelPadX"], sticky="w")
-    entry_banco = ttk.Entry(configuracao, state=DISABLED)
-    entry_banco.grid(row=3, column=0, columnspan=2, padx=config["inputPadX"], pady=config["inputPadY"], sticky="ew")
+    #label_banco = ttk.Label(configuracao, text="Caminho do Banco")
+    #label_banco.grid(row=2, column=0, padx=config["labelPadX"], sticky="w")
+    #entry_banco = ttk.Entry(configuracao, state=DISABLED)
+    #entry_banco.grid(row=3, column=0, columnspan=2, padx=config["inputPadX"], pady=config["inputPadY"], sticky="ew")
     #entry_banco.focus_set()
 
     obter_endereco_ip_nome()  # IP e Nome
