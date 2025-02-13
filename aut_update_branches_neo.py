@@ -8,7 +8,7 @@ def run_command(command):
 if __name__ == "__main__": 
     chdir(r"C:\Users\ebotelho\Automatizados\AutomatizadoNeo\Codigo")
     
-    branches = ['2.54', '2.56']
+    branches = ['2.54', '2.56', '2.57']
     
     for branch in branches:
         print(f'\nmain -> {branch} ---------------------------------------------------')
