@@ -102,7 +102,7 @@ def parametros_gerais(parametros):
     escreve("sim", 1)
     sleep(1)
     
-    clique_combo(11, "Parâmetros Gerais")  # Cliente Padrão # 54 11 56 12
+    clique_combo(12, "Parâmetros Gerais")  # Cliente Padrão # 54 11 56 12
     escreve("155", 1)  # Cartao a Receber
 
     sleep(3)
@@ -176,3 +176,4 @@ def parametros_gerais(parametros):
 
     sleep(1)
     return False
+
