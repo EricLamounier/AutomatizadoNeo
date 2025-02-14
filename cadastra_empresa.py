@@ -93,6 +93,10 @@ def cadastra_pessoa_municipio_logradouro(pessoa):
     escreve(pessoa["caixaPostal"], 1)
 
     escreve(pessoa["municipio"]["municipio"], 1)
+    sleep(0.7)
+    press('space')
+    sleep(0.5)
+    press('enter')
 
     escreve(pessoa["telefone"], 1)
 
@@ -141,7 +145,12 @@ def cadastra_pessoa_empresa(pessoa):
     escreve(pessoa["caixaPostal"])
     sleep(0.5)
 
-    escreve(pessoa["municipio"]["municipio"])
+    escreve(pessoa["municipio"]["municipio"],1)
+
+    sleep(0.7)
+    if "mesmoEnderecoCobranca" in pessoa: press('space')
+    sleep(0.5)
+    press("enter")
 
     sleep(0.5)
 
@@ -163,9 +172,7 @@ def cadastra_pessoa_empresa(pessoa):
     return False  # Nao ocorreu nenhum erro
 
 
-def cadastra_empresa(
-    empresa,
-): 
+def cadastra_empresa(empresa): 
 
     sleep(1)
     novo()  # Novo
