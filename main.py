@@ -359,7 +359,7 @@ def criar_interface():
     # Time Elapsed
     """label_time_elapsed = tk.Label(teste, text="00:00:00")
     label_time_elapsed.grid(row=2, column=1, padx=10, sticky="e")"""
-    te.label_timer = tk.Label(teste, text="10:00:00")
+    te.label_timer = tk.Label(teste, text="00:00:00", fg='#0480d8')
     te.label_timer.grid(row=2, column=1, padx=10, sticky="e")
 
     opcoesFormatadas = [x[0] for x in opcoes if x[0][0] != "_"]
