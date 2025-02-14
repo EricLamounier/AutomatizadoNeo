@@ -228,8 +228,7 @@ def cadastra_orcamento(orcamento):
 
     press('esc')
     return False
-from dados import *
-cadastra_orcamento(orcamento1)
+
 def cadastra_condicional(condicional):
     sleep(1)
     press('insert') # Sai do filtro
