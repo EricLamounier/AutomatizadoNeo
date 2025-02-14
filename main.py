@@ -14,10 +14,18 @@ from time import sleep
 from commonFunctionsAutomatizados import *
 from _opcoes import opcoes, smoke
 from commonFunctionsAutomatizados._dados import teste as test
+import commonFunctionsAutomatizados.timeelapsed as te
+from commonFunctionsAutomatizados.validacao import captura_imagem
 import ctypes
 import re
 
 current_line = 1
+
+def reset_timer():
+    global running, time_elapsed
+    running = False
+    time_elapsed = 0
+    label_time_elapsed.config(text="00:00:00")
 
 def configuracao_inicial():
     """Inicia o teste selecionado e configura a interface de usuário adequadamente."""
@@ -144,6 +152,7 @@ def rodar_comando_banco(caminho):
 """
 def iniciar():
 
+    te.start_timer()  
     global app
     global main_window
 
@@ -175,6 +184,7 @@ def parar():
     """Interrompe o teste em andamento."""
     hotkey("ctrl", "shift", "esc")
     test["forcaCancelaExecucao"] = True
+    te.stop_timer()
     messagebox.showinfo(
         "Parando Teste",
         "Aguarde a finalização dessa etapa ou bloqueie seu computador para parar imediatamente...",
@@ -250,7 +260,7 @@ def insere_mensagem(msg, check=1):
         text_output.insert(END, f"{msg}")
         text_output.config(state=DISABLED)
         change_color(msg)
-        root.update()
+        te.root.update()
         return
 
     # Limpa a linha anterior
@@ -262,7 +272,7 @@ def insere_mensagem(msg, check=1):
     text_output.insert(END, f"{msg}\n")
     text_output.config(state=DISABLED)
     change_color(msg)
-    root.update()
+    te.root.update()
     current_line += 1
 
 
@@ -296,7 +306,7 @@ def click_center():
 
 def criar_interface():
     """Configura a interface gráfica principal da aplicação."""
-    global root, entry_ip, entry_nome, entry_banco, comboBox_inicio, text_output, progress, porcentagem, test
+    global  entry_ip, entry_nome, entry_banco, comboBox_inicio, text_output, progress, porcentagem, test, label_time_elapsed
     configuracao_inicial()
 
     WINDOW_TITLE = f"AutomatizadoNeo - {test["teste"]["versao"]}"
@@ -305,20 +315,20 @@ def criar_interface():
     )
 
     # Criação da janela principal
-    root = tk.Tk()
-    root.title(WINDOW_TITLE)
-    root.iconbitmap(ICON_PATH)
-    #root.geometry("500x500")
-    root.geometry("500x450")
-    root.resizable(False, False)
+    te.root = tk.Tk()
+    te.root.title(WINDOW_TITLE)
+    te.root.iconbitmap(ICON_PATH)
+    #te.root.geometry("500x500")
+    te.root.geometry("500x450")
+    te.root.resizable(False, False)
 
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("testeautomatizado")
     ctypes.windll.user32.LoadIconW(0, ICON_PATH)
     
-    root.resizable(width=False, height=False)
+    te.root.resizable(width=False, height=False)
 
     # Frame para ID Máquina e Nome Máquina
-    configuracao = ttk.LabelFrame(root, text="Configuração")
+    configuracao = ttk.LabelFrame(te.root, text="Configuração")
     configuracao.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
 
     label_ip = ttk.Label(configuracao, text="IP Máquina")
@@ -340,11 +350,17 @@ def criar_interface():
     obter_endereco_ip_nome()  # IP e Nome
 
     # Frame para Teste e Início
-    teste = ttk.LabelFrame(root, text="Testes")
+    teste = ttk.LabelFrame(te.root, text="Testes")
     teste.grid(row=1, column=0, padx=10, pady=10, sticky="ew")
 
     label_inicio = ttk.Label(teste, text="Início")
     label_inicio.grid(row=2, column=0, padx=config["labelPadX"], sticky="w")
+
+    # Time Elapsed
+    """label_time_elapsed = tk.Label(teste, text="10:00:00")
+    label_time_elapsed.grid(row=2, column=1, padx=10, sticky="e")"""
+    te.label_timer = tk.Label(teste, text="10:00:00")
+    te.label_timer.grid(row=2, column=1, padx=10, sticky="e")
 
     opcoesFormatadas = [x[0] for x in opcoes if x[0][0] != "_"]
     comboBox_inicio = ttk.Combobox(teste, values=opcoesFormatadas, state="readonly")
@@ -357,7 +373,6 @@ def criar_interface():
         columnspan=2,
         sticky="nsew",
     )
-    # comboBox_inicio.bind("<<ComboboxSelected>>", testando) # Vincula o evento de seleção do Combobox a uma função
 
     # Frame para botões
     frame_botoes = ttk.Frame(teste)
@@ -377,7 +392,7 @@ def criar_interface():
     btn_limpar = ttk.Button(frame_botoes, text="Limpar", width=13, command=limpa)
     btn_limpar.grid(row=0, column=3, padx=5, sticky="ew")
 
-    text_output = scrolledtext.ScrolledText(root, height=9)
+    text_output = scrolledtext.ScrolledText(te.root, height=9)
     text_output.configure(font=("Mono", 10))
     text_output["state"] = DISABLED
     text_output.grid(row=2, column=0, padx=10, pady=10, sticky="w")
@@ -388,16 +403,20 @@ def criar_interface():
 
     # Barra de progresso
     progress = ttk.Progressbar(
-        root, orient="horizontal", length=100, mode="determinate"
+        te.root, orient="horizontal", length=100, mode="determinate"
     )
     progress.grid(row=3, column=0, padx=10, sticky="ew")
 
-    porcentagem = ttk.Label(root, text="0%", background=root.cget("bg"))
+    porcentagem = ttk.Label(te.root, text="0%", background=te.root.cget("bg"))
     porcentagem.grid(column=0, row=3, columnspan=1)
 
     # Rodapé
-    label_footer = tk.Label(root, text="Realtec © 2023", fg="gray")
-    label_footer.grid(row=4, column=0, padx=10, pady=10, sticky="s")
+    frame_rodape = ttk.Frame(te.root)
+    frame_rodape.grid(row=4, padx=10, pady=10, columnspan=2)
+
+    # Footer
+    label_footer = tk.Label(frame_rodape, text=f"Realtec © {datetime.now().year}", fg="gray")
+    label_footer.grid(row=0, column=0, padx=10, sticky="s")
 
     # Configura o grid do LabelFrame para dividir as colunas igualmente
     configuracao.grid_columnconfigure(0, weight=1)
@@ -413,11 +432,11 @@ def criar_interface():
     frame_botoes.grid_columnconfigure(2, weight=1)
     frame_botoes.grid_rowconfigure(0, weight=1)
 
-    root.grid_columnconfigure(0, weight=1)
-    root.grid_columnconfigure(0, weight=1)
+    te.root.grid_columnconfigure(0, weight=1)
+    te.root.grid_columnconfigure(0, weight=1)
     # redirect_output_to_widget(text_output) #TODO Verificar real necessidade
     atalhos()
-    root.mainloop()
+    te.root.mainloop()
 
 
 if __name__ == "__main__":
