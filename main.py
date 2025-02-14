@@ -15,7 +15,6 @@ from commonFunctionsAutomatizados import *
 from _opcoes import opcoes, smoke
 from commonFunctionsAutomatizados._dados import teste as test
 import commonFunctionsAutomatizados.timeelapsed as te
-from commonFunctionsAutomatizados.validacao import captura_imagem
 import ctypes
 import re
 
@@ -322,10 +321,8 @@ def criar_interface():
     te.root.geometry("500x450")
     te.root.resizable(False, False)
 
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("testeautomatizado")
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("testeautomatizadoneo")
     ctypes.windll.user32.LoadIconW(0, ICON_PATH)
-    
-    te.root.resizable(width=False, height=False)
 
     # Frame para ID Máquina e Nome Máquina
     configuracao = ttk.LabelFrame(te.root, text="Configuração")
