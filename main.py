@@ -357,7 +357,7 @@ def criar_interface():
     label_inicio.grid(row=2, column=0, padx=config["labelPadX"], sticky="w")
 
     # Time Elapsed
-    """label_time_elapsed = tk.Label(teste, text="10:00:00")
+    """label_time_elapsed = tk.Label(teste, text="00:00:00")
     label_time_elapsed.grid(row=2, column=1, padx=10, sticky="e")"""
     te.label_timer = tk.Label(teste, text="10:00:00")
     te.label_timer.grid(row=2, column=1, padx=10, sticky="e")
