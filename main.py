@@ -21,12 +21,14 @@ import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 
 current_line = 1
+theme = 0
 
 def reset_timer():
     global running, time_elapsed
     running = False
     time_elapsed = 0
     label_time_elapsed.config(text="00:00:00")
+
 
 def configuracao_inicial():
     """Inicia o teste selecionado e configura a interface de usuário adequadamente."""
@@ -37,8 +39,6 @@ def configuracao_inicial():
         "nomeExe": "AutomatizadoNeo",
     }
 
-
-def obter_endereco_ip_nome():
     """Obtém o endereço IP e nome da máquina e preenche os campos correspondentes."""
     try:
         host_name = socket.gethostname()
@@ -55,6 +55,8 @@ def obter_endereco_ip_nome():
             "Erro IP",
             f"Erro ao obter o endereço IP/Nome da máquina: {e}\nPor favor, insira manualmente.",
         )
+
+    print(f'Olá, {maquina["nome"]}!')
 
 
 def limpa():
@@ -97,60 +99,7 @@ def encontrar_indice(nome):
             return index
     return None
 
-"""
-def rodar_comando_banco(caminho):
-    database_path = fr"{caminho}"
 
-    cur = None
-    conn = None
-    response = None
-    msg = None
-
-    try:
-        # Conectando ao banco de dados Firebird
-        conn = firebirdsql.connect(
-            host='127.0.0.1',
-            database=database_path,
-            user='SYSDBA',
-            password='masterke',
-            charset='WIN1252'
-        )
-
-        cur = conn.cursor()
-        queries = [
-            (1, 53, 'TFFiltroEntradaCompra', 'rbTodos', 'Checked', 999),
-            (1, 60, 'TFFiltroDAV', 'rbTodos', 'Checked', 999),
-            (1, 72, 'TFFiltroOrcamento', 'rbTodos', 'Checked', 999),
-            (1, 82, 'TFFiltroCondicional', 'rbTodos', 'Checked', 999),
-            (1, 93, 'TFFiltroContasReceber', 'rbTodosSituacao', 'Checked', 999),
-            (1, 94, 'TFFiltroContasPagar', 'rbTodosSituacao', 'Checked', 999),
-        ]
-
-        query = `
-            INSERT INTO FILTROPADRAO 
-            (EMPCODIGO, FILPCONTADOR, FILPTELA, FILPCAMPO, FILPVALOR, USUCODIGO) 
-            VALUES (?, ?, ?, ?, ?, ?)
-        `
-
-        for q in queries:
-            cur.execute(query, q)
-
-        conn.commit()
-        response = True
-
-    except firebirdsql.DatabaseError as e:
-        print(f"Erro ao conectar ao banco de dados: {e}")
-        response = False
-        msg = e
-    finally:
-        # Fechando cursor e conexão
-        if cur:
-            cur.close()
-        if conn:
-            conn.close()
-        return response, msg
-
-"""
 def iniciar():
 
     te.start_timer()  
@@ -307,8 +256,7 @@ def click_center():
 
 def criar_interface():
     """Configura a interface gráfica principal da aplicação."""
-    global  entry_ip, entry_nome, entry_banco, comboBox_inicio, text_output, progress, porcentagem, test, label_time_elapsed
-    configuracao_inicial()
+    global  entry_ip, entry_nome, entry_banco, comboBox_inicio, text_output, progress, porcentagem, test, label_time_elapsed, style, varTheme
 
     WINDOW_TITLE = f"AutomatizadoNeo - {test["teste"]["versao"]}"
     ICON_PATH = join(
@@ -317,19 +265,20 @@ def criar_interface():
 
     # Criação da janela principal
     #te.root = tk.Tk()
-    te.root = ttk.Window(themename="darkly")
+    te.root = ttk.Window()
     te.root.title(WINDOW_TITLE)
     te.root.iconbitmap(ICON_PATH)
     te.root.geometry("500x450")
     te.root.resizable(False, False)
-    style = ttk.Style("cerculean")
+    style = ttk.Style()
+    style.theme_use("cerculean")  # Tema inicial
 
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("testeautomatizadoneo")
     ctypes.windll.user32.LoadIconW(0, ICON_PATH)
 
     # Frame para ID Máquina e Nome Máquina
     configuracao = ttk.LabelFrame(te.root, text="Configuração")
-    configuracao.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
+    configuracao.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
 
     label_ip = ttk.Label(configuracao, text="IP Máquina")
     label_ip.grid(row=0, column=0, padx=config["labelPadX"], sticky="w")
@@ -341,14 +290,7 @@ def criar_interface():
     entry_nome = ttk.Entry(configuracao)
     entry_nome.grid(row=1, column=1, padx=config["inputPadX"], pady=config["inputPadY"], sticky="ew")
 
-    #label_banco = ttk.Label(configuracao, text="Caminho do Banco")
-    #label_banco.grid(row=2, column=0, padx=config["labelPadX"], sticky="w")
-    #entry_banco = ttk.Entry(configuracao, state=DISABLED)
-    #entry_banco.grid(row=3, column=0, columnspan=2, padx=config["inputPadX"], pady=config["inputPadY"], sticky="ew")
-    #entry_banco.focus_set()
-
-    obter_endereco_ip_nome()  # IP e Nome
-
+   
     # Frame para Teste e Início
     teste = ttk.LabelFrame(te.root, text="Testes")
     teste.grid(row=1, column=0, padx=10, pady=10, sticky="ew")
@@ -449,7 +391,10 @@ def criar_interface():
     te.root.grid_columnconfigure(0, weight=1)
     te.root.grid_columnconfigure(0, weight=1)
     # redirect_output_to_widget(text_output) #TODO Verificar real necessidade
+
+    configuracao_inicial()
     atalhos()
+
     te.root.mainloop()
 
 
