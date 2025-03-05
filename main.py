@@ -1,8 +1,7 @@
 import tkinter as tk
-from tkinter import ttk, messagebox, scrolledtext, DISABLED, NORMAL, END
+from tkinter import messagebox, scrolledtext, DISABLED, NORMAL, END
 import socket
 import sys
-import firebirdsql
 import threading
 from os import mkdir
 from os.path import join, dirname, exists
@@ -17,6 +16,9 @@ from commonFunctionsAutomatizados._dados import teste as test
 import commonFunctionsAutomatizados.timeelapsed as te
 import ctypes
 import re
+
+import ttkbootstrap as ttk
+from ttkbootstrap.constants import *
 
 current_line = 1
 
@@ -314,12 +316,13 @@ def criar_interface():
     )
 
     # Criação da janela principal
-    te.root = tk.Tk()
+    #te.root = tk.Tk()
+    te.root = ttk.Window(themename="darkly")
     te.root.title(WINDOW_TITLE)
     te.root.iconbitmap(ICON_PATH)
-    #te.root.geometry("500x500")
     te.root.geometry("500x450")
     te.root.resizable(False, False)
+    style = ttk.Style("cerculean")
 
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("testeautomatizadoneo")
     ctypes.windll.user32.LoadIconW(0, ICON_PATH)
@@ -360,7 +363,7 @@ def criar_interface():
     te.label_timer.grid(row=2, column=1, padx=10, sticky="e")
 
     opcoesFormatadas = [x[0] for x in opcoes if x[0][0] != "_"]
-    comboBox_inicio = ttk.Combobox(teste, values=opcoesFormatadas, state="readonly")
+    comboBox_inicio = ttk.Combobox(teste, values=opcoesFormatadas, state="readonly", style="Custom.TCombobox")
     comboBox_inicio.set(opcoesFormatadas[0])  # Valor padrao
     comboBox_inicio.grid(
         row=3,
@@ -370,6 +373,20 @@ def criar_interface():
         columnspan=2,
         sticky="nsew",
     )
+
+    style.configure(
+        "Custom.TCombobox",  # Nome do estilo personalizado
+        fieldbackground="white",  # Cor de fundo do Combobox
+    )
+
+
+    # Personaliza a cor de fundo e texto selecionado
+    style.map(
+        "Custom.TCombobox",
+        selectbackground=[("readonly", "transparent")],  # Cor de fundo do texto selecionado
+        selectforeground=[("readonly", "#373A3C")],  # Cor do texto selecionado
+    )
+
 
     # Frame para botões
     frame_botoes = ttk.Frame(teste)
@@ -395,7 +412,7 @@ def criar_interface():
     text_output.grid(row=2, column=0, padx=10, pady=10, sticky="w")
     insere_mensagem('✔ ATENÇÃO!')
     insere_mensagem('✔ Certifíque-se de ter o CERTIFICADO REALTEC instalado na sua máquina!')
-    insere_mensagem('✔ Tenha apenas uma instância do NEO aberta!')
+    insere_mensagem('✔ Tenha apenas uma instância do Neo aberta!')
     insere_mensagem(rf'✔ Qualquer dúvida acessar: \\{ipCaminhoImagensNeo}\Users\ebotelho\Desktop\Automatizados\FAQ.docx')
 
     # Barra de progresso
