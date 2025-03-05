@@ -35,7 +35,7 @@ def configuracao_inicial():
     test["teste"] = {
         "nome": "Neo",
         "index": 0,
-        "versao": "2.54",
+        "versao": "2.57",
         "nomeExe": "AutomatizadoNeo",
     }
 
@@ -268,7 +268,7 @@ def criar_interface():
     te.root = ttk.Window()
     te.root.title(WINDOW_TITLE)
     te.root.iconbitmap(ICON_PATH)
-    te.root.geometry("500x450")
+    te.root.geometry("500x470")
     te.root.resizable(False, False)
     style = ttk.Style()
     style.theme_use("cerculean")  # Tema inicial
