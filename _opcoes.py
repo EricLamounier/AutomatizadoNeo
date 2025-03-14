@@ -9,6 +9,7 @@ from servicos import *
 from dados import *
 from pyautogui import press
 from time import sleep
+import commonFunctionsAutomatizados.timeelapsed as te
 
 def sair(arg=""):
     press("esc")
@@ -106,4 +107,5 @@ def smoke(index_inicio, insere_mensagem, step):
     # Finalização bem-sucedida
     step(len(opcoes))
     insere_mensagem("✔ Teste Finalizado!")
+    te.stop_timer()
     messagebox.showinfo("Finalizado com Sucesso!", "Teste Finalizado com Sucesso!")
