@@ -21,7 +21,6 @@ import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 
 current_line = 1
-theme = 0
 
 def reset_timer():
     global running, time_elapsed
@@ -39,6 +38,10 @@ def configuracao_inicial():
         "nomeExe": "AutomatizadoNeo",
     }
 
+    print(f'Olá, {maquina["nome"]}!')
+
+
+def get_ip():
     """Obtém o endereço IP e nome da máquina e preenche os campos correspondentes."""
     try:
         host_name = socket.gethostname()
@@ -55,8 +58,6 @@ def configuracao_inicial():
             "Erro IP",
             f"Erro ao obter o endereço IP/Nome da máquina: {e}\nPor favor, insira manualmente.",
         )
-
-    print(f'Olá, {maquina["nome"]}!')
 
 
 def limpa():
@@ -111,19 +112,11 @@ def iniciar():
         "index": encontrar_indice(comboBox_inicio.get()),
     }
 
-    """if int(test["etapa"]['index']) == 0:
-        caminho_banco = entry_banco.get()
-        caminho_banco = caminho_banco.replace('\"', '').strip()
-
-        response, msg = rodar_comando_banco(caminho_banco)
-        if not response:
-            print(f'Comando executado com erro! - {msg}')
-        else:
-            print('Comando executado com sucesso!')"""
-
     cria_pasta()
 
-    click_center()
+    largura, altura = size()
+    click(largura // 2, altura // 2)
+
     limpa()
 
     # Iniciar o teste em uma nova thread
@@ -159,45 +152,6 @@ def atalhos():
     """Configura os atalhos de teclado para o aplicativo."""
     add_hotkey("delete", forcarFechar)
     add_hotkey("alt", parar)
-
-
-def redirect_output_to_widget(text_widget):
-    """Redireciona a saída padrão para o widget de texto."""
-
-    # Checa se o widget de texto é None
-    if text_widget is None:
-        print("O widget de texto é None. A saída não será redirecionada.")
-        return
-
-    class WidgetLogger:
-        def __init__(self, widget):
-            self.widget = widget
-
-        def write(self, text):
-            self.widget.config(state=NORMAL)
-            self.widget.insert(END, text)
-            self.widget.config(state=DISABLED)
-            self.widget.see(END)
-
-        def flush(self):
-            pass
-
-    sys.stdout = WidgetLogger(text_widget)
-    sys.stderr = WidgetLogger(text_widget)
-
-    # Define o tratamento de exceções
-    sys.excepthook = lambda exc_type, exc_value, exc_traceback: handle_exception(
-        text_widget, exc_type, exc_value, exc_traceback
-    )
-
-
-def handle_exception(text_widget, exc_type, exc_value, exc_traceback):
-    """Trata exceções não capturadas e exibe no widget de texto."""
-    text_widget.config(state=NORMAL)
-    traceback_text = "".join(format_exception(exc_type, exc_value, exc_traceback))
-    text_widget.insert(END, traceback_text)
-    text_widget.config(state=DISABLED)
-    text_widget.see(END)
 
 
 def insere_mensagem(msg, check=1):
@@ -248,15 +202,11 @@ def step(val):
     porcentagem["text"] = f"{porcent}%"
 
 
-def click_center():
-    """Simula um clique no centro da tela."""
-    largura, altura = size()
-    click(largura // 2, altura // 2)
-
-
 def criar_interface():
     """Configura a interface gráfica principal da aplicação."""
     global  entry_ip, entry_nome, entry_banco, comboBox_inicio, text_output, progress, porcentagem, test, label_time_elapsed, style, varTheme
+
+    configuracao_inicial()
 
     WINDOW_TITLE = f"AutomatizadoNeo - {test["teste"]["versao"]}"
     ICON_PATH = join(
@@ -290,6 +240,7 @@ def criar_interface():
     entry_nome = ttk.Entry(configuracao)
     entry_nome.grid(row=1, column=1, padx=config["inputPadX"], pady=config["inputPadY"], sticky="ew")
 
+    get_ip()
    
     # Frame para Teste e Início
     teste = ttk.LabelFrame(te.root, text="Testes")
@@ -392,7 +343,6 @@ def criar_interface():
     te.root.grid_columnconfigure(0, weight=1)
     # redirect_output_to_widget(text_output) #TODO Verificar real necessidade
 
-    configuracao_inicial()
     atalhos()
 
     te.root.mainloop()
