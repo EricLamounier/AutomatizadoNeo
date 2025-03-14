@@ -55,10 +55,12 @@ def valida_cadastro_inicial():
 
 
 def cadastra_pessoa_municipio_logradouro(pessoa):
-    sleep(1)
+    sleep(1.5)
     escreve(pessoa["tipoPessoa"], 1)
+    sleep(0.2)
 
     escreve(pessoa["documento"], 1)
+    sleep(0.2)
 
     escreve(pessoa["tipoIE"], 1)
 
