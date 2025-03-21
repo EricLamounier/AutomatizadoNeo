@@ -42,7 +42,6 @@ empresa = {
         "bairro": "1",
         "caixaPostal": "",
         "municipio": {"municipio": "3162104", "pais": ""},
-        "mesmoEnderecoCobranca": 1,
         "telefone": "37000000000",
         "celular": "",
         "email": "",
@@ -226,7 +225,6 @@ clienteClassificacao1 = {
     "mensagemBloqueiaAtrasoMensagem": "",
     "bloqueiaLimiteCredito": "n",
     "mensagemBloqueiaCreditoMensagem": "",
-    "carenciaAtraso": "0",
     "validacao": [
         "Geral",
         "1",
@@ -265,7 +263,6 @@ clienteClassificacao2 = {
     "mensagemBloqueiaAtrasoMensagem": "bloqueia atraso",
     "bloqueiaLimiteCredito": "n",
     "mensagemBloqueiaCreditoMensagem": "",
-    "carenciaAtraso": "0",
     "validacao": [
         "Bloqueia Atraso",
         "2",
@@ -351,7 +348,6 @@ pessoa1 = {
     "bairro": "1",
     "caixaPostal": "",
     "municipio": {"municipio": "3162104", "pais": ""},
-    "mesmoEnderecoCobranca": 1,
     "telefone": "",
     "celular": "",
     "email": "",
@@ -421,7 +417,6 @@ pessoa2 = {
     "bairro": "1",
     "caixaPostal": "",
     "municipio": {"municipio": "5200050", "pais": ""},
-    "mesmoEnderecoCobranca": 1,
     "telefone": "",
     "celular": "",
     "email": "",
@@ -491,7 +486,6 @@ pessoa3 = {
     "bairro": "1",
     "caixaPostal": "",
     "municipio": {"municipio": "10000000", "pais": ""},
-    "mesmoEnderecoCobranca": 1,
     "telefone": "",
     "celular": "",
     "email": "",
@@ -561,7 +555,6 @@ pessoa4 = {
     "bairro": "1",
     "caixaPostal": "",
     "municipio": {"municipio": "3162104", "pais": ""},
-    "mesmoEnderecoCobranca": 1,
     "telefone": "",
     "celular": "",
     "email": "",
@@ -2134,7 +2127,7 @@ dav1 = {
                     "0,00",
                     "0,00",
                     "",
-                    '0,00', '0,00', '0,00', ''
+                    '0,00', '0,00', '0,00', 'C- Menos Importante', ''
                 ],
             },
             {
@@ -2204,7 +2197,7 @@ dav1 = {
                     "0,00",
                     "0,00",
                     "",
-                    '0,00', '0,00', '0,00', ''
+                    '0,00', '0,00', '0,00', 'C- Menos Importante', ''
                 ],
             },
         ],
@@ -2404,7 +2397,7 @@ dav2 = {
                 "quantidade": "10",
                 "unitario": "3",
                 "grade": "",
-                'validacaoEstoque': ['#produto1', '1', '1000000000016', '10,00', '3,00', '91,000', '0,00', '0,00', 'S', '0,00', 'Unidade', '103', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', '', '00 - Mercadoria para Revenda', '00', '0', '0', '0,000', '0,000', '0,000', '91,000', '2,59', 'UN', '', 'T', 'T', '3105.90.90', '', '0,00', '', '0', '', '', 'Nenhum', '', '', 'N', '', '0,000', '0,00', '10,00', '2,59', '', '0,000', '0,000', '0,00', '0,00', '15,66', '-100,00', '', '', '', '0,00', '0,00', '0,00', '', '0,00', '0,00', '0,00', '']
+                'validacaoEstoque': ['#produto1', '1', '1000000000016', '10,00', '3,00', '91,000', '0,00', '0,00', 'S', '0,00', 'Unidade', '103', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', '', '00 - Mercadoria para Revenda', '00', '0', '0', '0,000', '0,000', '0,000', '91,000', '2,59', 'UN', '', 'T', 'T', '3105.90.90', '', '0,00', '', '0', '', '', 'Nenhum', '', '', 'N', '', '0,000', '0,00', '10,00', '2,59', '', '0,000', '0,000', '0,00', '0,00', '15,66', '-100,00', '', '', '', '0,00', '0,00', '0,00', '', '0,00', '0,00', '0,00','C- Menos Importante', '']
             },
             {
                 "produtoID": "2",
@@ -2412,7 +2405,7 @@ dav2 = {
                 "quantidade": "15",
                 "unitario": "20",
                 "grade": "",
-                'validacaoEstoque': ['#produto2', '2', '1000000000023', '10,00', '20,00', '67,000', '0,00', '0,00', 'S', '0,00', 'Decimal', '900', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', '', '00 - Mercadoria para Revenda', '00', '0', '0', '0,000', '0,000', '0,000', '67,000', '15,37', 'DC', '', 'T', 'T', '3105.90.90', '', '12,00', '', '0', '', '', 'Nenhum', '', '', 'N', '', '0,000', '0,00', '10,00', '15,37', '', '0,000', '0,000', '0,00', '0,00', '30,14', '-100,00', '', '', '', '0,00', '0,00', '0,00', '', '0,00', '0,00', '0,00', '']
+                'validacaoEstoque': ['#produto2', '2', '1000000000023', '10,00', '20,00', '67,000', '0,00', '0,00', 'S', '0,00', 'Decimal', '900', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', '', '00 - Mercadoria para Revenda', '00', '0', '0', '0,000', '0,000', '0,000', '67,000', '15,37', 'DC', '', 'T', 'T', '3105.90.90', '', '12,00', '', '0', '', '', 'Nenhum', '', '', 'N', '', '0,000', '0,00', '10,00', '15,37', '', '0,000', '0,000', '0,00', '0,00', '30,14', '-100,00', '', '', '', '0,00', '0,00', '0,00', '', '0,00', '0,00', '0,00', 'C- Menos Importante','']
             },
             {
                 "produtoID": "3",
@@ -2423,7 +2416,7 @@ dav2 = {
                     {"barras": "a1b1", "quantidade": "25"},
                     {"barras": "a2b2", "quantidade": "25"},
                 ],
-                'validacaoEstoque': ['#produto3', '3', '1000000000030', '50,00', '30,00', '50,000', '0,00', '0,00', 'S', '0,00', 'Unidade', '900', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', '', '00 - Mercadoria para Revenda', '00', '0', '0', '0,000', '0,000', '0,000', '50,000', '50,00', 'UN', '', 'T', 'T', '3105.90.90', '', '12,00', '', '0', '', '', 'Nenhum', '', '', 'N', '', '0,000', '0,00', '50,00', '50,00', '', '0,000', '0,000', '0,00', '0,00', '-40,00', '-100,00', '', '', '', '0,00', '0,00', '0,00', '', '0,00', '0,00', '0,00', '']
+                'validacaoEstoque': ['#produto3', '3', '1000000000030', '50,00', '30,00', '50,000', '0,00', '0,00', 'S', '0,00', 'Unidade', '900', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', '', '00 - Mercadoria para Revenda', '00', '0', '0', '0,000', '0,000', '0,000', '50,000', '50,00', 'UN', '', 'T', 'T', '3105.90.90', '', '12,00', '', '0', '', '', 'Nenhum', '', '', 'N', '', '0,000', '0,00', '50,00', '50,00', '', '0,000', '0,000', '0,00', '0,00', '-40,00', '-100,00', '', '', '', '0,00', '0,00', '0,00', '', '0,00', '0,00', '0,00', 'C- Menos Importante','']
             },
         ],
         "servicos": [
