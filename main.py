@@ -3,7 +3,7 @@ from tkinter import messagebox, scrolledtext, DISABLED, NORMAL, END
 import socket
 import sys
 import threading
-from os import mkdir
+from os import mkdir, getlogin
 from os.path import join, dirname, exists
 from subprocess import run, CalledProcessError
 from keyboard import add_hotkey
@@ -38,7 +38,7 @@ def configuracao_inicial():
         "nomeExe": "AutomatizadoNeo",
     }
 
-    print(f'Olá, {maquina["nome"]}!')
+    print(f'Olá, {getlogin()}!')
 
 
 def get_ip():
