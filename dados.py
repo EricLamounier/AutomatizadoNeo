@@ -17,7 +17,7 @@ empresa = {
         "bairro": "Santa Teresinha",
         "caixaPostal": "",
         "municipio": {"municipio": "3162104", "pais": ""},
-        "mesmoEnderecoCobranca": "true",
+        #"mesmoEnderecoCobranca": "true",
         "telefone": "",
         "celular": "",
         "email": "",
