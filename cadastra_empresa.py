@@ -220,6 +220,13 @@ def cadastra_empresa(
     if valida_cadastro_inicial() == "":
         return True  # Nao foi criado
 
+    clicaCentro()
     press("f5")
+    clicaCentro()
+    clicaCentro()
+    clicaCentro()
+    clicaCentro()
+    clicaCentro()
+    sleep(0.5)
     sleep(10)  # Entra no sistema
     return False  # Criou
