@@ -226,6 +226,7 @@ clienteClassificacao1 = {
     "mensagemBloqueiaAtrasoMensagem": "",
     "bloqueiaLimiteCredito": "n",
     "mensagemBloqueiaCreditoMensagem": "",
+    "carenciaAtraso": '0',
     "validacao": [
         "Geral",
         "1",
@@ -263,6 +264,7 @@ clienteClassificacao2 = {
     "bloqueiaAtraso": "b",
     "mensagemBloqueiaAtrasoMensagem": "bloqueia atraso",
     "bloqueiaLimiteCredito": "n",
+    "carenciaAtraso": '0',
     "mensagemBloqueiaCreditoMensagem": "",
     "validacao": [
         "Bloqueia Atraso",
