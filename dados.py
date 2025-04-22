@@ -266,6 +266,7 @@ clienteClassificacao2 = {
     "bloqueiaLimiteCredito": "n",
     "carenciaAtraso": '0',
     "mensagemBloqueiaCreditoMensagem": "",
+    "carenciaAtraso": "0",
     "validacao": [
         "Bloqueia Atraso",
         "2",
