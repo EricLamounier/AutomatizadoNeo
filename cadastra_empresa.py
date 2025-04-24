@@ -96,7 +96,7 @@ def cadastra_pessoa_municipio_logradouro(pessoa):
 
     escreve(pessoa["municipio"]["municipio"], 1)
     sleep(0.7)
-    press('space')
+    #press('space')
     sleep(0.5)
     press('enter')
 
