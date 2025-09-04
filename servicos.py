@@ -55,6 +55,8 @@ def cadastra_servico(servico):
     if cadastra_subgrupo(cadastro["subgrupo"]):
         return True
     seleciona()
+    sleep(0.5)
+    press('enter')
     sleep(1)
 
     escreve(fiscal["NBS"])

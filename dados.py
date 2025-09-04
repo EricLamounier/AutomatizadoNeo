@@ -294,45 +294,6 @@ clienteClassificacao2 = {
         "",
     ],
 }
-"""
-clienteClassificacao3 = {
-    "nome": "bloqueia limite",
-    "cobrar": "",
-    "mensagem": "",
-    "bloqueiaVendaAPrazo": "",
-    "bloqueiaAtraso": "n",
-    "mensagemBloqueiaAtrasoMensagem": "",
-    "bloqueiaLimiteCredito": "b",
-    "mensagemBloqueiaCreditoMensagem": "bloqueia limite",
-    "validacao": [
-        "Bloqueia Limite",
-        "3",
-        "Não",
-        "Bloqueia",
-        "Não",
-        "Bloqueia",
-        "Não",
-        "Bloqueia",
-        "Não",
-        "Bloqueia",
-        "Não",
-        "Bloqueia",
-        "Não",
-        "Bloqueia",
-        "Avisa",
-        "Avisa",
-        "Não",
-        "Bloqueia",
-        "Não",
-        "Bloqueia",
-        "0",
-        "0",
-        "",
-        "S",
-        "",
-    ],
-}
-"""
 
 pessoa1 = {
     "tipoPessoa": "fisica",
@@ -2060,7 +2021,6 @@ dav1 = {
     "formaCobranca": "1",  # Carteira
     "frete": "",
     "cadastraCMV": 1,
-    "geraNFCe": 0,
     "itens": {
         "produtos": [
             {
@@ -2068,7 +2028,6 @@ dav1 = {
                 "produto": "#produto1",
                 "quantidade": "100",
                 "unitario": "3",
-                "grade": "",
                 "validacaoEstoque": [
                     "#produto1",
                     "1",
@@ -2138,7 +2097,6 @@ dav1 = {
                 "produto": "#produto2",
                 "quantidade": "50",
                 "unitario": "20",
-                "grade": "",
                 "validacaoEstoque": [
                     "#produto2",
                     "2",
@@ -2204,7 +2162,6 @@ dav1 = {
                 ],
             },
         ],
-        "servicos": [],
         "validacaoProdutos": [],
         "validacaoServicos": [],
         "validacaoItensDAV": [
@@ -2390,8 +2347,6 @@ dav2 = {
     "formaCobranca": "",  #
     'total': '1.974,80',
     "frete": "",
-    "cadastraCMV": 0,
-    "geraNFCe": 0,
     "itens": {
         "produtos": [
             {
@@ -2399,7 +2354,6 @@ dav2 = {
                 "produto": "#produto1",
                 "quantidade": "10",
                 "unitario": "3",
-                "grade": "",
                 'validacaoEstoque': ['#produto1', '1', '1000000000016', '10,00', '3,00', '91,000', '0,00', '0,00', 'S', '0,00', 'Unidade', '103', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', '', '00 - Mercadoria para Revenda', '00', '0', '0', '0,000', '0,000', '0,000', '91,000', '2,59', 'UN', '', 'T', 'T', '3105.90.90', '', '0,00', '', '0', '', '', 'Nenhum', '', '', 'N', '', '0,000', '0,00', '10,00', '2,59', '', '0,000', '0,000', '0,00', '0,00', '15,66', '-100,00', '', '', '', '0,00', '0,00', '0,00', '', '0,00', '0,00', '0,00','C- Menos Importante', '']
             },
             {
@@ -2407,7 +2361,6 @@ dav2 = {
                 "produto": "#produto2",
                 "quantidade": "15",
                 "unitario": "20",
-                "grade": "",
                 'validacaoEstoque': ['#produto2', '2', '1000000000023', '10,00', '20,00', '67,000', '0,00', '0,00', 'S', '0,00', 'Decimal', '900', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', '', '00 - Mercadoria para Revenda', '00', '0', '0', '0,000', '0,000', '0,000', '67,000', '15,37', 'DC', '', 'T', 'T', '3105.90.90', '', '12,00', '', '0', '', '', 'Nenhum', '', '', 'N', '', '0,000', '0,00', '10,00', '15,37', '', '0,000', '0,000', '0,00', '0,00', '30,14', '-100,00', '', '', '', '0,00', '0,00', '0,00', '', '0,00', '0,00', '0,00', 'C- Menos Importante','']
             },
             {
@@ -2691,8 +2644,6 @@ orcamento1 = {
     'validacao3': ['S', '1,0000', '1,0000', '1', '', '', '#serviço1', '110,00', '10,00', '', '100,00', 'S', '4,0000', '4,0000', '1', '1000000000016', '', '#produto1', '7,00', '3,00', '0,00', '25,00', '', '5,0000', '5,0000', '0', '', '', '#produtonãocadastrado', '10,00', '0,00', '', '50,00', ''],
     'validacao4': ['', '2', 'S', '1,00', '1', '', '', '#serviço1', '', '110,00', '0,00', '10,00', '0,00', '100,00', '', '#pessoaresponsável', '', '', '', '', 'Grupo Serviço', 'Subgrupo Serviço', 'Decimal', '', '1', 'P', '4,00', '1', '1000000000016', '', '#produto1', '6.102', '7,00', '0,00', '3,00', '0,00', '25,00', '', '#pessoaresponsável', '3105.90.90', 'Outros', '', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', 'Unidade', ''],
     'validacao5': ['', '#pessoa2', '05/11/2024', '05/11/2024', '1', '3', '3', '175,00', '', 'Finalizado', '#pessoaresponsável', '', '', '', '', '', '0', '00:00:00', '', 'N', '', '', '', '0,00', '', '']
-
-
 }
 
 condicional1 = {
