@@ -34,7 +34,7 @@ def configuracao_inicial():
     test["teste"] = {
         "nome": "Neo",
         "index": 0,
-        "versao": "2.57",
+        "versao": "2.58",
         "nomeExe": "AutomatizadoNeo",
     }
 

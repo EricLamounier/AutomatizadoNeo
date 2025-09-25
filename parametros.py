@@ -25,7 +25,7 @@ def parametros_gerais(parametros):
         "pasta": "parametros",
         "imagem": "geralPrincipal",
         "inicio": "724x265",
-        "fim": "1334x480",
+        "fim": "1334x744",
     }
     if imagens_diferentes(modulo):
         return True
@@ -44,7 +44,7 @@ def parametros_gerais(parametros):
         "pasta": "parametros",
         "imagem": "geralCompras",
         "inicio": "724x265",
-        "fim": "1334x382",
+        "fim": "1334x744",
     }
     if imagens_diferentes(modulo):
         return True
@@ -63,7 +63,7 @@ def parametros_gerais(parametros):
     escreve("nao", 1)
 
     sleep(1)
-    clique_combo(15, "Parâmetros Gerais")  # Forma Cobrança
+    clique_combo(16, "Parâmetros Gerais")  # Forma Cobrança
     sleep(0.5)
     entrar_combo()
 
@@ -83,7 +83,7 @@ def parametros_gerais(parametros):
         "pasta": "parametros",
         "imagem": "geralVendas",
         "inicio": "724x265",
-        "fim": "1334x685",
+        "fim": "1334x744",
     }
     if imagens_diferentes(modulo):
         return True
@@ -104,13 +104,14 @@ def parametros_gerais(parametros):
     
     clique_combo(12, "Parâmetros Gerais")  # Cliente Padrão # 54 11 56 12
     escreve("155", 1)  # Cartao a Receber
+    clique_parametros("Financeiro")
 
     sleep(3)
     modulo = {
         "pasta": "parametros",
         "imagem": "geralFinanceiro",
         "inicio": "724x265",
-        "fim": "1334x620",
+        "fim": "1334x744",
     }
     if imagens_diferentes(modulo):
         return True
@@ -131,7 +132,7 @@ def parametros_gerais(parametros):
         "pasta": "parametros",
         "imagem": "geralFaturamento",
         "inicio": "724x265",
-        "fim": "1334x368",
+        "fim": "1334x744",
     }
     if imagens_diferentes(modulo):
         return True
@@ -151,7 +152,7 @@ def parametros_gerais(parametros):
         "pasta": "parametros",
         "imagem": "geralGeral",
         "inicio": "724x265",
-        "fim": "1334x479",
+        "fim": "1334x744",
     }
     if imagens_diferentes(modulo):
         return True

@@ -71,45 +71,50 @@ def cadastra_conta_movimento(contas):
             modulo = {
                 "pasta": "financeiro",
                 "imagem": "contaBancaria",
-                "inicio": "635x306",
-                "fim": "1300x762",
+                "inicio": "555x257",
+                "fim": "1365x800",
             }
-            if imagens_diferentes(modulo, (326, 108, 441, 144)):
+            if imagens_diferentes(modulo, (372, 74, 499, 115)):
                 return True
             sleep(0.5)
 
             press(["enter", "enter", "enter", "enter"])  # Salva e vai para a carteira
 
             sleep(2)
+            press("enter")
+            sleep(1)
 
             carteira = conta["carteira"]
 
             escreve(carteira["numero"], 1)
-            escreve(carteira["variacao"], 1)
-            escreve(carteira["registro"], 1)
-            escreve(carteira["aceite"], 1)
             escreve(carteira["especie"], 1)
             escreve(carteira["codigoCedente"], 1)
             escreve(carteira["digito"], 1)
-            escreve(carteira["convenio"], 1)
+            escreve(carteira["aceite"], 1)
+            escreve(carteira["responsavel"], 1)
             escreve(carteira["tipoMora"], 1)
             escreve(carteira["moraJuros"], 1)
             escreve(carteira["diasModaJuros"], 1)
             escreve(carteira["tipoMulta"], 1)
             escreve(carteira["diasProtestar"], 1)
-            escreve(carteira["responsavel"], 1)
-            escreve(carteira["enviaRemessa"], 1)
-            escreve(carteira["localPagamento"], 1)
+            escreve("", 1) # Vencimento tarifa            
             escreve(carteira["numDocumento"], 1)
+            escreve(carteira["tarifaPorBoleto"], 1)
+            escreve(carteira["numInicialBoleto"], 1)
+            escreve(carteira["registro"], 1)
+            escreve(carteira["enviaRemessa"], 1)
+            escreve(carteira["variacao"], 1)
+            escreve(carteira["convenio"], 1)
+            escreve(carteira["tipoBoletoCEF"], 1)
+            escreve(carteira["localPagamento"], 1)
+            escreve(carteira["relatorio"], 1)
+            escreve(carteira["homologada"], 1)
+            escreve(carteira["numInicialRemessa"], 3)
             escreve(carteira["instrucao1"], 1)
             escreve(carteira["instrucao2"], 1)
-            escreve(carteira["relatorio"], 1)
-            escreve(carteira["tipoBoletoCEF"], 1)
-            escreve(carteira["ativo"], 1)
-            escreve(carteira["homologada"], 1)
-            escreve(carteira["tarifaPorBoleto"], 2)
-            escreve(carteira["numInicialBoleto"], 1)
-            escreve(carteira["numInicialRemessa"], 4)
+            escreve("", 1) # intruções
+            escreve(carteira["ativo"], 2)
+
             sleep(1)
 
             moveTo(10, 10)  # Move o mouse para tirar foco do campo
@@ -119,8 +124,8 @@ def cadastra_conta_movimento(contas):
             modulo = {
                 "pasta": "financeiro",
                 "imagem": "carteira",
-                "inicio": "635x306",
-                "fim": "1300x762",
+                "inicio": "556x263",
+                "fim": "1361x739",
             }
             if imagens_diferentes(modulo):
                 return True
@@ -293,8 +298,6 @@ def cadastra_lancamento_conta_corrente(lancamentos): # TODO: PEGAR OS DADOS DA V
     cont = 1
     datasHoje = lancamentos["indicesData"]["hoje"]
     datasFuturas = lancamentos["indicesData"]["futuras"]
-
-    print(datasFuturas)
 
     for idx in datasHoje:
         lancamentos["validacao"][idx] = obter_data(0)

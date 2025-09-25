@@ -227,9 +227,10 @@ def cadastra_entrada_compra_importacao_xml(compra=""):
                         "Alterar - Item do XML",
                         "Atualizar NCM do Produto com NCM do XML",
                     )
-                    sleep(0.3)
+                    sleep(1)
 
-            salva(1)
+            press('insert')
+            sleep(0.5)
             press("down")  # Proximo
             sleep(1)
         else:  # Exclui
