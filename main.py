@@ -12,6 +12,7 @@ from traceback import format_exception
 from time import sleep
 from commonFunctionsAutomatizados import *
 from _opcoes import opcoes, smoke
+from ipCaminho import ipCaminho
 from commonFunctionsAutomatizados._dados import teste as test
 import commonFunctionsAutomatizados.timeelapsed as te
 import ctypes
@@ -70,7 +71,7 @@ def limpa():
 
 
 def cria_pasta():
-    base_dir = rf"\\{ipCaminhoImagensNeo}\Users\ebotelho\Automatizados\{test["teste"]["nomeExe"]}\Imagens"
+    base_dir = rf"\\{ipCaminho}\Automatizados\{test["teste"]["nomeExe"]}\Imagens"
     if not exists(base_dir):  # Se nao existir a pasta Imagens, cria
         mkdir(base_dir)
 
