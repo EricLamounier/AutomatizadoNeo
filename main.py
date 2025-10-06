@@ -23,6 +23,8 @@ from ttkbootstrap.constants import *
 
 current_line = 1
 
+sys.path.append(r"\\SRV-DEV-Impressora\Automatizados\AutomatizadoNeo")
+
 def reset_timer():
     global running, time_elapsed
     running = False
