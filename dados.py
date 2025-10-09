@@ -1,3 +1,6 @@
+import commonFunctionsAutomatizados.ipCaminho as ipCaminho
+
+
 empresa = {
     "pessoa": {
         "tipoPessoa": "juridica",
