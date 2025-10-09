@@ -12,9 +12,9 @@ from traceback import format_exception
 from time import sleep
 from commonFunctionsAutomatizados import *
 from _opcoes import opcoes, smoke
-from ipCaminho import ipCaminho
 from commonFunctionsAutomatizados._dados import teste as test
 import commonFunctionsAutomatizados.timeelapsed as te
+import commonFunctionsAutomatizados.ipCaminho as ipCaminho
 import ctypes
 import re
 
@@ -22,8 +22,6 @@ import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 
 current_line = 1
-
-sys.path.append(r"\\SRV-DEV-Impressora\Automatizados\AutomatizadoNeo")
 
 def reset_timer():
     global running, time_elapsed
