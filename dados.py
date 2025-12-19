@@ -22,6 +22,7 @@ empresa = {
         "municipio": {"municipio": "3162104", "pais": ""},
         #"mesmoEnderecoCobranca": "true",
         "telefone": "",
+        "paisCelular": "",
         "celular": "",
         "email": "",
         "tipo": [0, 0],  # CLIENTE | FORNECEDOR
@@ -47,6 +48,7 @@ empresa = {
         "caixaPostal": "",
         "municipio": {"municipio": "3162104", "pais": ""},
         "telefone": "37000000000",
+        "paisCelular": "",
         "celular": "",
         "email": "",
         "tipo": [0, 0],  # CLIENTE | FORNECEDOR
