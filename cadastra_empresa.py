@@ -160,7 +160,7 @@ def cadastra_pessoa_empresa(pessoa):
 
     escreve(pessoa["telefone"])
     
-    escreve([pessoa["paisCelular"], 1)
+    escreve(pessoa["paisCelular"], 1)
 
     escreve(pessoa["celular"])
 
