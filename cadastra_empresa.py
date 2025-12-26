@@ -102,7 +102,7 @@ def cadastra_pessoa_municipio_logradouro(pessoa):
 
     escreve(pessoa["telefone"], 1)
     
-    escreve([pessoa["paisCelular"], 1)
+    escreve(pessoa["paisCelular"], 1)
 
     escreve(pessoa["celular"], 1)
 
