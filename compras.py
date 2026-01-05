@@ -64,6 +64,8 @@ def cadastra_entrada_compra_manual(compra):
     escreve(principal["fornecedor"])
 
     escreve(principal["crt"])
+    
+    escreve("1")
 
     escreve(principal["funcionario"])
 

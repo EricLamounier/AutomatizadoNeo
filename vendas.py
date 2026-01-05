@@ -103,8 +103,8 @@ def cadastra_orcamento(orcamento):
     pula(3)
     escreve(orcamento['funcionario'], 1)
     escreve(orcamento['frete'], 3)
-    escreve(orcamento['cliente'], 6)
-    sleep(0.5)
+    escreve(orcamento['cliente'], 7)
+    sleep(2)
 
     if len(orcamento['produtos']) > 0:
         for produto in orcamento['produtos']:

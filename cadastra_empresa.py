@@ -101,8 +101,6 @@ def cadastra_pessoa_municipio_logradouro(pessoa):
     press('enter')
 
     escreve(pessoa["telefone"], 1)
-    
-    escreve(pessoa["paisCelular"], 1)
 
     escreve(pessoa["celular"], 1)
 
@@ -159,8 +157,6 @@ def cadastra_pessoa_empresa(pessoa):
     sleep(0.5)
 
     escreve(pessoa["telefone"])
-    
-    escreve(pessoa["paisCelular"], 1)
 
     escreve(pessoa["celular"])
 
