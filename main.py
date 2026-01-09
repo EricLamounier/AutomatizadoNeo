@@ -4,8 +4,8 @@ import socket
 import sys
 import threading
 from os import mkdir, getlogin
-from os.path import join, dirname, exists
-from subprocess import run, CalledProcessError
+from os.path import join, dirname, exists, isdir
+from subprocess import run, CalledProcessError, PIPE
 from keyboard import add_hotkey
 from pyautogui import click, size, hotkey
 from traceback import format_exception
@@ -22,6 +22,34 @@ import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 
 current_line = 1
+
+def run_git_command(cmd, cwd):
+    result = run(
+        cmd,
+        cwd=cwd,
+        stdout=PIPE,
+        stderr=PIPE,
+        text=True
+    )
+    return result.stdout.strip()
+    
+def submodule_is_updated(submodule_path, branch="main"):
+    print("Verificando submodulo")
+    if not isdir(submodule_path):
+        raise FileNotFoundError(f"Submódulo não encontrado: {submodule_path}")
+
+    # Atualiza refs remotas
+    run_git_command(["git", "fetch"], submodule_path)
+
+    local_commit = run_git_command(
+        ["git", "rev-parse", "HEAD"], submodule_path
+    )
+
+    remote_commit = run_git_command(
+        ["git", "rev-parse", f"origin/{branch}"], submodule_path
+    )
+
+    return local_commit == remote_commit
 
 def reset_timer():
     global running, time_elapsed
@@ -40,6 +68,12 @@ def configuracao_inicial():
     }
 
     print(f'Olá, {getlogin()}!')
+    
+    if not submodule_is_updated("commonFunctionsAutomatizados"):
+        print("X️ Submódulo desatualizado!")
+        print("Execute: git submodule update --remote")
+    else:
+        print("+ Submódulo atualizado")
 
 
 def get_ip():
